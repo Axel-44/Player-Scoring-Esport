@@ -1,0 +1,207 @@
+{
+  "trendingTopics": [
+    "PMSL SEA Fall Grand Finals",
+    "Bursa Transfer Ryzen & Rosemary",
+    "Update Patch PUBG Mobile 2026",
+    "Analisis Meta Senjata M416",
+    "Kualifikasi PMGC London"
+  ],
+  "heroArticles": [
+    {
+      "id": "hero-1",
+      "category": "KEJUARAAN DUNIA PMGC",
+      "subCategory": "PMGC 2026 TURKI",
+      "title": "Indonesia Kirim Dua Tim ke Kejuaraan Dunia PUBG Mobile 2026 PMGC Turki",
+      "summary": "Dua tim perwakilan Indonesia resmi memastikan tiket berlaga di panggung bergengsi PUBG Mobile Global Championship (PMGC) 2026 di Turki, membawa ambisi besar untuk mengharumkan nama bangsa di kancah dunia.",
+      "image": "/news/pmgc_turki.jpg",
+      "readTime": "4 Menit Baca",
+      "date": "Terbaru • Esports.id",
+      "url": "https://www.esports.id/read/indonesia-kirim-dua-tim-ke-kejuaraan-dunia-pubg-mobile-2026-pmgc-turki-19794",
+      "badge": "HEADLINE UTAMA"
+    },
+    {
+      "id": "hero-2",
+      "category": "KOMPETISI PMGO S2",
+      "subCategory": "MAIN EVENT GRAND FINAL",
+      "title": "PMGO S2 Main Event Day 1 Grand Final Berjalan Baik untuk 3 Tim Indonesia",
+      "summary": "Penampilan solid ditunjukkan oleh tiga perwakilan tim Indonesia di hari pertama babak Grand Final PMGO Season 2, mengamankan poin-poin krusial dalam perburuan gelar juara dunia.",
+      "image": "/news/pmgo_s2_day1.png",
+      "readTime": "3 Menit Baca",
+      "date": "Terbaru • Esports.id",
+      "url": "https://www.esports.id/read/pmgo-s2-main-event-day-1-grand-final-berjalan-baik-untuk-3-tim-indonesia-19785",
+      "badge": "SOROTAN GRAND FINAL"
+    }
+  ],
+  "breakingStories": [
+    {
+      "id": "brk-1",
+      "title": "Rosemary Raih Gelar MVP Finals dengan K/D Mengagumkan 5.12",
+      "category": "PMSL SEA",
+      "time": "1 jam lalu",
+      "image": "/players/rosemary.jpg",
+      "url": "https://www.esports.id/pubg-m"
+    },
+    {
+      "id": "brk-2",
+      "title": "Analisis Meta: Kombinasi M416 + UMP45 Dominasi Zona Akhir",
+      "category": "META GUIDE",
+      "time": "2 jam lalu",
+      "image": "/pmgc_stage.jpg",
+      "url": "https://www.esports.id/pubg-m"
+    },
+    {
+      "id": "brk-3",
+      "title": "Zuxxy Catatkan Rekor 1.000 Eliminasi di Turnamen Internasional",
+      "category": "MILESTONE",
+      "time": "3 jam lalu",
+      "image": "/players/zuxxy.jpg",
+      "url": "https://www.esports.id/pubg-m"
+    },
+    {
+      "id": "brk-4",
+      "title": "Luxxy Ungkap Kunci Kemenangan Clutch di Map Miramar",
+      "category": "PRO TALK",
+      "time": "4 jam lalu",
+      "image": "/players/luxxy.jpg",
+      "url": "https://www.esports.id/pubg-m"
+    }
+  ],
+  "dontMiss": {
+    "featured": {
+      "id": "dm-feat",
+      "category": "PANDUAN TURNAMEN",
+      "title": "PMGO 2026 Season 2: Jadwal, Format, Total Hadiah, dan Roster Tim Indonesia",
+      "summary": "Informasi lengkap turnamen akbar PMGO 2026 Season 2 mulai dari jadwal pertandingan babak kualifikasi hingga grand final, format kompetisi, prize pool fantastis, serta daftar roster tim Indonesia yang berlaga.",
+      "time": "Terbaru • Esports.id",
+      "image": "/news/pmgo_s2_guide.jpg",
+      "url": "https://www.esports.id/read/pmgo-2026-season-2-jadwal-format-total-hadiah-dan-roster-tim-indonesia-19711"
+    },
+    "items": [
+      {
+        "id": "dm-1",
+        "category": "VENUE DUNIA",
+        "title": "ICE BSD Jadi Venue IESF WEC 2026, Bakal Diikuti 101 Negara!",
+        "time": "Terbaru • Esports.id",
+        "image": "/news/iesf_wec_bsd.jpg",
+        "url": "https://www.esports.id/read/ice-bsd-jadi-venue-iesf-wec-2026-bakal-diikuti-101-negara-19756"
+      },
+      {
+        "id": "dm-2",
+        "category": "PEMBINAAN ATLET",
+        "title": "Piala Panglima TNI Esports Championship 2026 Dorong Pembinaan Atlet dari Daerah ke Nasional",
+        "time": "Terbaru • Esports.id",
+        "image": "/news/piala_panglima_tni.jpg",
+        "url": "https://www.esports.id/read/piala-panglima-tni-esports-championship-2026-dorong-pembinaan-atlet-dari-daerah-ke-nasional-19775"
+      },
+      {
+        "id": "dm-3",
+        "category": "KANDIDAT FMVP",
+        "title": "PMGO S2 Main Event: 4 Pemain yang Layak Dipantau dalam Perburuan FMVP",
+        "time": "Terbaru • Esports.id",
+        "image": "/news/pmgo_s2_fmvp.png",
+        "url": "https://www.esports.id/read/pmgo-s2-main-event-4-pemain-yang-layak-dipantau-dalam-perburuan-fmvp-19752"
+      },
+      {
+        "id": "dm-4",
+        "category": "KAMPUS & ESPORTS",
+        "title": "2026 PMCC ID Buka Pendaftaran, Mahasiswa Bisa Berkarier di Esports PUBG MOBILE",
+        "time": "Terbaru • Esports.id",
+        "image": "/news/pmcc_id_mahasiswa.jpg",
+        "url": "https://www.esports.id/read/2026-pmcc-id-buka-pendaftaran-mahasiswa-bisa-berkarier-di-esports-pubg-mobile-19495"
+      }
+    ]
+  },
+  "topStories": [
+    {
+      "rank": 1,
+      "title": "Alter Ego Ares Kokoh di Puncak Klasemen Grand Finals PMSL SEA",
+      "time": "1 jam lalu",
+      "image": "/players/rosemary.jpg",
+      "url": "https://www.esports.id/pubg-m"
+    },
+    {
+      "rank": 2,
+      "title": "BTR Knights Siapkan Skema Khusus Hadapi Tim Thailand di Hari Penentuan",
+      "time": "2 jam lalu",
+      "image": "/players/luxxy.jpg",
+      "url": "https://www.esports.id/pubg-m"
+    },
+    {
+      "rank": 3,
+      "title": "Daftar 16 Tim Unggulan yang Lolos Kualifikasi PMGC London",
+      "time": "3 jam lalu",
+      "image": "/pmgc_stage.jpg",
+      "url": "https://www.esports.id/pubg-m"
+    },
+    {
+      "rank": 4,
+      "title": "Scouting Talenta Muda: Deretan Atlet Berperingkat Tinggi Siap Trial",
+      "time": "4 jam lalu",
+      "image": "/player_card_hero.jpg",
+      "url": "https://www.esports.id/pubg-m"
+    },
+    {
+      "rank": 5,
+      "title": "Esports ID Umumkan Total Hadiah Kalender Kompetisi Capai Puluhan Miliar",
+      "time": "5 jam lalu",
+      "image": "/players/zuxxy.jpg",
+      "url": "https://www.esports.id/pubg-m"
+    }
+  ],
+  "popularVideos": {
+    "featured": {
+      "id": "vid-feat",
+      "title": "Live Grand Finals PUBG Mobile: Pertarungan Sengit Rebut Tahta Juara",
+      "channel": "PUBG MOBILE Indonesia",
+      "views": "Live Streaming",
+      "duration": "LIVE",
+      "badge": "HIGHLIGHT UTAMA",
+      "youtubeUrl": "https://www.youtube.com/live/6SyNGtbtfGw?si=kiChbXfI_piybXk6",
+      "image": "https://img.youtube.com/vi/6SyNGtbtfGw/hqdefault.jpg",
+      "url": "https://www.youtube.com/live/6SyNGtbtfGw"
+    },
+    "items": [
+      {
+        "id": "vid-1",
+        "title": "Live Stream Pertandingan Turnamen Resmi PUBG Mobile",
+        "duration": "LIVE",
+        "time": "Live Stream",
+        "youtubeUrl": "https://www.youtube.com/live/eiki81QfkPs?si=65pC4L7SMsyhgGh3",
+        "image": "https://img.youtube.com/vi/eiki81QfkPs/hqdefault.jpg",
+        "url": "https://www.youtube.com/live/eiki81QfkPs"
+      },
+      {
+        "id": "vid-2",
+        "title": "Highlight Match PUBG Mobile: Aksi Eliminasi Menegangkan",
+        "duration": "Highlight",
+        "time": "Official Highlight",
+        "youtubeUrl": "https://youtu.be/dSTg7HkFVbg?si=2gDzfkDepG_EJPe3",
+        "image": "https://img.youtube.com/vi/dSTg7HkFVbg/hqdefault.jpg",
+        "url": "https://youtu.be/dSTg7HkFVbg"
+      },
+      {
+        "id": "vid-3",
+        "title": "Momen Epik Turnamen PUBG Mobile: Duel Zona Akhir",
+        "duration": "Highlight",
+        "time": "Official Highlight",
+        "youtubeUrl": "https://youtu.be/rS-Tlxl-7yg?si=EtJro4xsZ6vnSmrt",
+        "image": "https://img.youtube.com/vi/rS-Tlxl-7yg/hqdefault.jpg",
+        "url": "https://youtu.be/rS-Tlxl-7yg"
+      }
+    ]
+  },
+  "teamStandings": [
+    { "rank": 1, "team": "Alter Ego Ares", "tag": "AE", "country": "🇮🇩 ID", "matches": 18, "wwcd": 5, "kills": 128, "points": 194, "status": "Slot PMGC London" },
+    { "rank": 2, "team": "Vampire Esports", "tag": "VPE", "country": "🇹🇭 TH", "matches": 18, "wwcd": 4, "kills": 115, "points": 178, "status": "Slot PMGC London" },
+    { "rank": 3, "team": "Bigetron Knights", "tag": "BTR", "country": "🇮🇩 ID", "matches": 18, "wwcd": 3, "kills": 110, "points": 169, "status": "Slot PMGC London" },
+    { "rank": 4, "team": "Talon Esports", "tag": "TLN", "country": "🇮🇩 ID", "matches": 18, "wwcd": 2, "kills": 98, "points": 146, "status": "In Contention" },
+    { "rank": 5, "team": "Faze Clan", "tag": "FAZE", "country": "🇹🇭 TH", "matches": 18, "wwcd": 2, "kills": 91, "points": 138, "status": "In Contention" },
+    { "rank": 6, "team": "RRQ Ryu", "tag": "RRQ", "country": "🇮🇩 ID", "matches": 18, "wwcd": 1, "kills": 86, "points": 129, "status": "In Contention" }
+  ],
+  "upcomingMatches": [
+    { "id": "m1", "date": "Hari Ini • 16:00 WIB", "teamA": "Alter Ego", "tagA": "AE", "teamB": "Bigetron", "tagB": "BTR", "map": "Erangel (Match 1)", "status": "UPCOMING" },
+    { "id": "m2", "date": "Hari Ini • 17:00 WIB", "teamA": "RRQ Ryu", "tagA": "RRQ", "teamB": "Vampire", "tagB": "VPE", "map": "Miramar (Match 2)", "status": "UPCOMING" },
+    { "id": "m3", "date": "Hari Ini • 18:15 WIB", "teamA": "Talon ID", "tagA": "TLN", "teamB": "Faze Clan", "tagB": "FAZE", "map": "Sanhok (Match 3)", "status": "UPCOMING" },
+    { "id": "m4", "date": "Besok • 16:00 WIB", "teamA": "Dewa United", "tagA": "DU", "teamB": "BOOM", "tagB": "BOOM", "map": "Erangel (Match 4)", "status": "SCHEDULED" }
+  ]
+}

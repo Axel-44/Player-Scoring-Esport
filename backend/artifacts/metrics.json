@@ -1,0 +1,82 @@
+{
+  "model_name": "XGBRegressor",
+  "r2_score": 0.8345,
+  "rmse": 6.4494,
+  "mae": 5.0699,
+  "train_r2_score": 0.884,
+  "train_rmse": 5.2756,
+  "train_mae": 4.2276,
+  "cv_best_score": -40.4092,
+  "best_params": {
+    "colsample_bytree": 0.8,
+    "learning_rate": 0.05,
+    "max_depth": 3,
+    "n_estimators": 150,
+    "subsample": 0.8
+  },
+  "features": [
+    "tier_encoded",
+    "kills",
+    "damage_dealt",
+    "survival_time_minutes",
+    "headshot_percentage",
+    "assists",
+    "revives",
+    "distance_travelled_km",
+    "longest_kill_meters",
+    "heals_used",
+    "boosts_used",
+    "match_rank"
+  ],
+  "feature_importances": [
+    {
+      "feature": "match_rank",
+      "importance": 0.5604
+    },
+    {
+      "feature": "survival_time_minutes",
+      "importance": 0.1369
+    },
+    {
+      "feature": "headshot_percentage",
+      "importance": 0.0725
+    },
+    {
+      "feature": "damage_dealt",
+      "importance": 0.0604
+    },
+    {
+      "feature": "kills",
+      "importance": 0.0439
+    },
+    {
+      "feature": "revives",
+      "importance": 0.0362
+    },
+    {
+      "feature": "assists",
+      "importance": 0.0298
+    },
+    {
+      "feature": "heals_used",
+      "importance": 0.0149
+    },
+    {
+      "feature": "distance_travelled_km",
+      "importance": 0.0131
+    },
+    {
+      "feature": "longest_kill_meters",
+      "importance": 0.0129
+    },
+    {
+      "feature": "tier_encoded",
+      "importance": 0.01
+    },
+    {
+      "feature": "boosts_used",
+      "importance": 0.009
+    }
+  ],
+  "target_met": true
+}

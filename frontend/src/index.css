@@ -1,0 +1,278 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-main: #ffffff;
+    --bg-card: #f4f4f5;
+    --bg-surface: #fafafa;
+    --border-main: #e4e4e7;
+    --text-main: #000000;
+    --text-muted: #18181b;
+    --accent-red: #dc2626;
+    color-scheme: light;
+  }
+
+  html.dark {
+    --bg-main: #09090b;
+    --bg-card: #18181b;
+    --bg-surface: #121215;
+    --border-main: #27272a;
+    --text-main: #ffffff;
+    --text-muted: #f4f4f5;
+    --accent-red: #dc2626;
+    color-scheme: dark;
+  }
+
+  body {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+}
+
+@layer components {
+  /* Minimalist Monochrome Panels */
+  .glass-panel {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-main);
+  }
+
+  .glass-panel-hover {
+    transition: all 0.2s ease-in-out;
+  }
+  .glass-panel-hover:hover {
+    border-color: #3f3f46;
+    transform: translateY(-2px);
+  }
+  html:not(.dark) .glass-panel-hover:hover {
+    border-color: #d4d4d8;
+  }
+
+  /* Clean Monochrome Badges (5 Talent Tiers) */
+  .badge-master,
+  .badge-elite {
+    background: #18181b;
+    border: 1px solid #dc2626;
+    color: #ffffff;
+  }
+  html:not(.dark) .badge-master,
+  html:not(.dark) .badge-elite {
+    background: #f4f4f5;
+    border: 1px solid #dc2626;
+    color: #09090b;
+  }
+
+  .badge-berpotensi,
+  .badge-tinggi {
+    background: #18181b;
+    border: 1px solid #3f3f46;
+    color: #e4e4e7;
+  }
+  html:not(.dark) .badge-berpotensi,
+  html:not(.dark) .badge-tinggi {
+    background: #f4f4f5;
+    border: 1px solid #d4d4d8;
+    color: #18181b;
+  }
+
+  .badge-mahir {
+    background: #18181b;
+    border: 1px solid #27272a;
+    color: #d4d4d8;
+  }
+  html:not(.dark) .badge-mahir {
+    background: #f4f4f5;
+    border: 1px solid #e4e4e7;
+    color: #27272a;
+  }
+
+  .badge-menengah {
+    background: #121215;
+    border: 1px solid #27272a;
+    color: #a1a1aa;
+  }
+  html:not(.dark) .badge-menengah {
+    background: #fafafa;
+    border: 1px solid #e4e4e7;
+    color: #52525b;
+  }
+
+  .badge-pemula,
+  .badge-rendah {
+    background: #121215;
+    border: 1px solid #27272a;
+    color: #71717a;
+  }
+  html:not(.dark) .badge-pemula,
+  html:not(.dark) .badge-rendah {
+    background: #fafafa;
+    border: 1px solid #e4e4e7;
+    color: #71717a;
+  }
+}
+
+/* Minimalist Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-main);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-main);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #52525b;
+}
+
+/* =========================================================================
+   DOCUMENT VIEW TRANSITIONS API - CIRCULAR REVEAL ANIMATION
+   ========================================================================= */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+::view-transition-old(root) {
+  z-index: 1;
+}
+
+::view-transition-new(root) {
+  z-index: 9999;
+}
+
+.dark::view-transition-old(root) {
+  z-index: 1;
+}
+
+.dark::view-transition-new(root) {
+  z-index: 9999;
+}
+
+/* Angular Sporty Polygon Cuts (ESPN Inspiration) */
+.clip-angled-left {
+  clip-path: polygon(0 0, 100% 0, 85% 100%, 0% 100%);
+}
+
+.clip-angled-right {
+  clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+/* =========================================================================
+   DIAGONAL SHUTTER / GEOMETRIC SLICE ANIMATIONS (STYLE 3 - PMGC TOURNAMENT)
+   ========================================================================= */
+@keyframes diagonalShutterReveal {
+  0% {
+    opacity: 0;
+    clip-path: polygon(0 0, 0 0, -20% 100%, -20% 100%);
+    transform: scale(1.03) translate3d(-10px, 0, 0);
+  }
+  40% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    clip-path: polygon(0 0, 130% 0, 110% 100%, 0% 100%);
+    transform: scale(1) translate3d(0, 0, 0);
+  }
+}
+
+@keyframes diagonalLaserSlice {
+  0% {
+    opacity: 0;
+    transform: translate3d(-120%, 0, 0) skewX(-16deg);
+  }
+  15% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(280%, 0, 0) skewX(-16deg);
+  }
+}
+
+@keyframes geometricTextReveal {
+  0% {
+    opacity: 0;
+    clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+    transform: translate3d(20px, 0, 0);
+  }
+  100% {
+    opacity: 1;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes cinematicProgressBar {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.animate-diagonal-shutter {
+  animation: diagonalShutterReveal 520ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-diagonal-laser {
+  animation: diagonalLaserSlice 560ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-geometric-text {
+  animation: geometricTextReveal 480ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-cinematic-progress {
+  animation: cinematicProgressBar linear forwards;
+}
+
+/* =========================================================================
+   PRINT STYLES FOR OFFICIAL SCOUTING REPORTS (A4 FORMAT)
+   ========================================================================= */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 10mm;
+  }
+
+  body {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  aside,
+  header,
+  footer,
+  nav,
+  .print\:hidden {
+    display: none !important;
+  }
+
+  #scouting-report-sheet {
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    page-break-inside: avoid !important;
+  }
+}
+

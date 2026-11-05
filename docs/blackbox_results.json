@@ -1,0 +1,82 @@
+[
+  {
+    "id": "BB-02",
+    "name": "Login dengan kredensial salah",
+    "expected": "Pesan error ditampilkan bahwa kredensial tidak valid",
+    "actual": "Pesan error berhasil ditampilkan: \"Email atau kata sandi tidak valid. Silakan periksa kembali.\"",
+    "status": "LULUS (Passed)",
+    "details": ""
+  },
+  {
+    "id": "BB-01",
+    "name": "Login dengan kredensial benar",
+    "expected": "Masuk ke dashboard sesuai role (Manager)",
+    "actual": "Berhasil dialihkan ke rute /manager/dashboard",
+    "status": "LULUS (Passed)",
+    "details": ""
+  },
+  {
+    "id": "BB-05",
+    "name": "Buka leaderboard",
+    "expected": "Pemain terurut menurun berdasarkan skor",
+    "actual": "Tabel menampilkan pemain terurut skor: [85.5, 79.8, 79.1, 78.4, 78]",
+    "status": "LULUS (Passed)",
+    "details": ""
+  },
+  {
+    "id": "BB-06",
+    "name": "Filter berdasarkan Tier dan rentang skor",
+    "expected": "Hanya data sesuai filter yang tampil (Tier Ace dan skor >= 50)",
+    "actual": "Seluruh 10 baris sampel memenuhi filter (Tier: Ace, Skor >= 50: [77.7, 77.1, 76.7, 75.2, 72.8, 71.3, 70.1, 70, 69.5, 68.9])",
+    "status": "LULUS (Passed)",
+    "details": ""
+  },
+  {
+    "id": "BB-07",
+    "name": "Cari IGN",
+    "expected": "Hasil sesuai kata kunci pencarian (\"P10\")",
+    "actual": "Ditemukan 25 hasil, seluruh baris memuat \"P10\": [P1026P1026, P1014P1014, P1055P1055]",
+    "status": "LULUS (Passed)",
+    "details": ""
+  },
+  {
+    "id": "BB-08",
+    "name": "Tambah pemain ke shortlist",
+    "expected": "Pemain muncul di shortlist",
+    "actual": "Pemain P5P5 berhasil muncul di tabel recruitment shortlist",
+    "status": "LULUS (Passed)",
+    "details": ""
+  },
+  {
+    "id": "BB-09",
+    "name": "Ekspor shortlist",
+    "expected": "File CSV dapat diekspor dan diunduh",
+    "actual": "Tombol ekspor berhasil dipicu dan menghasilkan file CSV lengkap dengan atribut Player_ID, IGN, Tier, Score, dan Notes",
+    "status": "LULUS (Passed)",
+    "details": ""
+  },
+  {
+    "id": "BB-10",
+    "name": "Bandingkan 2-3 pemain",
+    "expected": "Radar chart dan statistik berdampingan tampil akurat",
+    "actual": "Menampilkan Recharts Radar multi-dimensi dan matriks komparasi statistik 3 pemain",
+    "status": "LULUS (Passed)",
+    "details": ""
+  },
+  {
+    "id": "BB-04",
+    "name": "Input statistik tidak valid",
+    "expected": "Validasi menolak dan menampilkan pesan instruktif",
+    "actual": "Validasi form menolak submit dengan pesan: \"Persentase Headshot tidak valid. Nilai harus berada di rentang 0% hingga 100%.\"",
+    "status": "LULUS (Passed)",
+    "details": ""
+  },
+  {
+    "id": "BB-03",
+    "name": "Input statistik valid",
+    "expected": "Skor 0-100 dan kategori tampil",
+    "actual": "Hasil kalkulasi skor XGBoost: 80.1/100, Kategori: Elite",
+    "status": "LULUS (Passed)",
+    "details": ""
+  }
+]
