@@ -232,15 +232,16 @@ export const PlayerStoreProvider = ({ children }) => {
   const [playerProfile, setPlayerProfile] = useState(() => {
     if (isDemoPlayer) return DEFAULT_RYZEN_PROFILE;
     try {
-      const saved = localStorage.getItem(`pulse_scout_profile_${currentUserKey}`);
-      if (saved) return JSON.parse(saved);
+      if (currentUserKey && currentUserKey !== "guest") {
+        const saved = localStorage.getItem(`pulse_scout_profile_${currentUserKey}`);
+        if (saved) return JSON.parse(saved);
+      }
     } catch {}
 
-    if (!user) return DEFAULT_RYZEN_PROFILE;
-
+    const authName = user?.user_metadata?.full_name || (user?.email ? user.email.split("@")[0] : "");
     return {
-      ign: user.user_metadata?.full_name || "",
-      real_name: user.user_metadata?.full_name || "",
+      ign: authName,
+      real_name: authName,
       gameId: "",
       role: "",
       bio: "",
@@ -319,14 +320,17 @@ export const PlayerStoreProvider = ({ children }) => {
   const [playerHistory, setPlayerHistory] = useState(() => {
     if (isDemoPlayer) return DEFAULT_DEMO_HISTORY;
     try {
-      const saved = localStorage.getItem(`pulse_scout_history_${currentUserKey}`);
-      if (saved) {
-        const parsed = JSON.parse(saved);
-        if (Array.isArray(parsed)) return parsed;
+      if (currentUserKey && currentUserKey !== "guest") {
+        const saved = localStorage.getItem(`pulse_scout_history_${currentUserKey}`);
+        if (saved) {
+          const parsed = JSON.parse(saved);
+          if (Array.isArray(parsed)) {
+            return parsed.filter((m) => m.id !== "hist-1" && m.id !== "hist-2" && m.id !== "hist-3");
+          }
+        }
       }
     } catch {}
-    if (!user) return DEFAULT_DEMO_HISTORY;
-    return []; // Akun baru mulai dari riwayat KOSONG!
+    return []; // Selalu mulai dari riwayat KOSONG [] untuk akun non-demo!
   });
 
   // 5. Profil Tim Manager (Terisolasi per Akun)
@@ -417,25 +421,22 @@ export const PlayerStoreProvider = ({ children }) => {
     // 2. Riwayat Skor
     if (email === "player@esports-talent.id") {
       setPlayerHistory(DEFAULT_DEMO_HISTORY);
-    } else if (user) {
+    } else if (user && key && key !== "guest") {
       try {
         let historyData = [];
         const saved = localStorage.getItem(`pulse_scout_history_${key}`);
         if (saved) {
-          historyData = JSON.parse(saved);
-        } else {
-          const globalSaved = localStorage.getItem(USER_HISTORY_STORAGE_KEY);
-          if (globalSaved) {
-            const parsedGlobal = JSON.parse(globalSaved);
-            if (Array.isArray(parsedGlobal) && parsedGlobal.length > 0) {
-              historyData = parsedGlobal;
-            }
+          const parsed = JSON.parse(saved);
+          if (Array.isArray(parsed)) {
+            historyData = parsed.filter((m) => m.id !== "hist-1" && m.id !== "hist-2" && m.id !== "hist-3");
           }
         }
-        setPlayerHistory(Array.isArray(historyData) ? historyData : []);
+        setPlayerHistory(historyData);
       } catch {
         setPlayerHistory([]);
       }
+    } else {
+      setPlayerHistory([]);
     }
 
     // 3. Tim Manager
@@ -1075,12 +1076,14 @@ export const PlayerStoreProvider = ({ children }) => {
 
           let localSavedHistory = [];
           try {
-            const rawHist =
-              localStorage.getItem(`pulse_scout_history_${localKey}`) ||
-              localStorage.getItem(USER_HISTORY_STORAGE_KEY);
+            const rawHist = localStorage.getItem(`pulse_scout_history_${localKey}`);
             if (rawHist) {
               const parsed = JSON.parse(rawHist);
-              if (Array.isArray(parsed)) localSavedHistory = parsed;
+              if (Array.isArray(parsed)) {
+                localSavedHistory = isDemoPlayer
+                  ? parsed
+                  : parsed.filter((m) => m.id !== "hist-1" && m.id !== "hist-2" && m.id !== "hist-3");
+              }
             }
           } catch {}
 

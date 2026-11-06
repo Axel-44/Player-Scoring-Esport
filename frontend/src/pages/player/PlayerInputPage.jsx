@@ -141,9 +141,9 @@ export const PlayerInputPage = () => {
   const [showVisionModal, setShowVisionModal] = useState(false);
   const [showSuccessModal, setShowSuccessModal] = useState(false);
 
-  // Opsi Tujuan Penyimpanan: "leaderboard" (publik) atau "profile_only" (privat di profil saja)
-  const [publishChoice, setPublishChoice] = useState("leaderboard");
-  const [isMatchPublished, setIsMatchPublished] = useState(true);
+  // Opsi Tujuan Penyimpanan: "profile_only" (privat di profil saja) atau "leaderboard" (publik)
+  const [publishChoice, setPublishChoice] = useState("profile_only");
+  const [isMatchPublished, setIsMatchPublished] = useState(false);
 
   const handleTogglePublish = async () => {
     if (!savedRecord?.id) return;

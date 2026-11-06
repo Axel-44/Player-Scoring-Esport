@@ -5,7 +5,7 @@
  * - "Data tim berhasil ditambahkan"
  * - "Data tim sudah diperbarui"
  * - "Statistik berhasil diinput dan dihitung"
- * - "Profil atlet berhasil diperbarui"
+ * - "Profil berhasil diperbarui"
  * Mendukung warna teks putih di dark mode dan hitam di light mode.
  */
 
