@@ -138,16 +138,39 @@ export const PlayerVisionCard = ({
 
   const { role, style, tagline } = getRoleAndStyle();
 
+  // Cek apakah pemain baru belum memiliki riwayat pertandingan (Skor 0 / Unranked)
+  const hasNoData =
+    (!score || Number(score) === 0 || tier === "Unranked") &&
+    Number(kills) === 0 &&
+    Number(damage) === 0 &&
+    Number(survival) === 0;
+
   // 1. COMBAT POWER
-  const combatPct = Math.min(99, Math.max(20, Math.round((kills / 10) * 45 + (damage / 900) * 55)));
+  const combatPct = hasNoData
+    ? 0
+    : Math.min(99, Math.max(10, Math.round((kills / 10) * 45 + (damage / 900) * 55)));
   // 2. AIM ACCURACY
-  const accuracyPct = Math.min(99, Math.max(15, Math.round((headshot / 45) * 60 + (longestKill / 220) * 40)));
+  const accuracyPct = hasNoData
+    ? 0
+    : Math.min(99, Math.max(10, Math.round((headshot / 45) * 60 + (longestKill / 220) * 40)));
   // 3. SURVIVAL ZONE
-  const survivalPct = Math.min(99, Math.max(15, Math.round((survival / 29) * 65 + (distance / 7.5) * 35)));
+  const survivalPct = hasNoData
+    ? 0
+    : Math.min(99, Math.max(10, Math.round((survival / 29) * 65 + (distance / 7.5) * 35)));
   // 4. TACTICAL IQ
-  const tacticalPct = Math.min(99, Math.max(20, Math.round(Math.max(10, 100 - rank * 4) * 0.7 + (assists / 5) * 30)));
+  const tacticalPct = hasNoData
+    ? 0
+    : Math.min(
+        99,
+        Math.max(10, Math.round(Math.max(10, 100 - (rank || 100) * 4) * 0.7 + (assists / 5) * 30))
+      );
   // 5. SQUAD UTILITY
-  const utilityPct = Math.min(99, Math.max(20, Math.round((revives / 4) * 50 + ((heals + boosts) / 10) * 50)));
+  const utilityPct = hasNoData
+    ? 0
+    : Math.min(
+        99,
+        Math.max(10, Math.round((revives / 4) * 50 + ((heals + boosts) / 10) * 50))
+      );
 
   return (
     <div

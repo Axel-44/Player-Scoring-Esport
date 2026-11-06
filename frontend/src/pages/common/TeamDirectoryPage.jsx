@@ -93,9 +93,11 @@ export const TeamDirectoryPage = () => {
         if (!matchesRole) return false;
       }
 
-      // 3. Only Open Recruitment
-      if (onlyOpenRecruit && !team.openRecruitment) {
-        return false;
+      // 3. Only Open Recruitment (harus buka lowongan dan masih ada slot roster tersisa)
+      if (onlyOpenRecruit) {
+        const m = Math.max(1, Number(team.maxRosterCount || 5));
+        const a = Math.min(m, Math.max(0, Number(team.activeRosterCount ?? 0)));
+        if (!team.openRecruitment || a >= m) return false;
       }
 
       // 4. Only Wishlist
@@ -107,9 +109,13 @@ export const TeamDirectoryPage = () => {
     });
   }, [registeredTeams, searchQuery, roleFilter, onlyOpenRecruit, onlyWishlist, playerWishlistTeams]);
 
-  // Statistik Ringkas
+  // Statistik Ringkas (hanya tim dengan slot roster tersisa)
   const openTrialCount = useMemo(() => {
-    return (registeredTeams || []).filter((t) => t.openRecruitment).length;
+    return (registeredTeams || []).filter((t) => {
+      const m = Math.max(1, Number(t.maxRosterCount || 5));
+      const a = Math.min(m, Math.max(0, Number(t.activeRosterCount ?? 0)));
+      return Boolean(t.openRecruitment) && a < m;
+    }).length;
   }, [registeredTeams]);
 
   // Format link WhatsApp langsung
@@ -297,9 +303,16 @@ export const TeamDirectoryPage = () => {
             const scoreGap = ((team.recruitmentMinScore || 70.0) - playerBestScore).toFixed(1);
 
             // Kapasitas Roster
-            const activeCount = team.activeRosterCount !== undefined && team.activeRosterCount !== null ? Number(team.activeRosterCount) : 0;
-            const maxCount = Number(team.maxRosterCount || 5);
+            const maxCount = Math.max(1, Number(team.maxRosterCount || 5));
+            const activeCount = Math.min(
+              maxCount,
+              team.activeRosterCount !== undefined && team.activeRosterCount !== null
+                ? Math.max(0, Number(team.activeRosterCount))
+                : 0
+            );
             const openSlots = Math.max(0, maxCount - activeCount);
+            const isRosterFull = openSlots === 0 || activeCount >= maxCount;
+            const isOpenTrial = Boolean(team.openRecruitment) && !isRosterFull;
             const rosterPct = maxCount > 0 ? Math.min(100, Math.round((activeCount / maxCount) * 100)) : 0;
 
             // Roles array
@@ -378,14 +391,14 @@ export const TeamDirectoryPage = () => {
                         </button>
                       )}
 
-                      {team.openRecruitment ? (
+                      {isOpenTrial ? (
                         <span className="px-3 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider bg-emerald-500/15 text-emerald-700 dark:text-emerald-400 border border-emerald-500/40 flex items-center gap-1.5 shadow-sm">
                           <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
                           Open Trial
                         </span>
                       ) : (
                         <span className="px-3 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider bg-zinc-200 dark:bg-zinc-800 text-black dark:text-white border border-zinc-300 dark:border-zinc-700">
-                          Roster Full
+                          Roster Penuh
                         </span>
                       )}
                     </div>
@@ -512,7 +525,7 @@ export const TeamDirectoryPage = () => {
                     {team.instagram && <span className="ml-2 font-normal text-black dark:text-white">{team.instagram}</span>}
                   </div>
 
-                  {team.contactPhone && team.openRecruitment && (
+                  {team.contactPhone && isOpenTrial ? (
                     <a
                       href={formatWhatsAppLink(team.contactPhone, team.name, neededRoles)}
                       target="_blank"
@@ -522,6 +535,10 @@ export const TeamDirectoryPage = () => {
                       <Phone className="w-3.5 h-3.5 text-white" />
                       <span>Daftar Trial (WA)</span>
                     </a>
+                  ) : (
+                    <span className="px-3 py-1.5 rounded-xl bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-500 text-xs font-bold uppercase tracking-wider shrink-0">
+                      Roster Penuh
+                    </span>
                   )}
                 </div>
               </div>

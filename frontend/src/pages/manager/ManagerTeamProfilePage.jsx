@@ -59,7 +59,7 @@ export const ManagerTeamProfilePage = () => {
     city: managerTeam?.city || (isDemo ? "Bandung, Jawa Barat" : ""),
     established: managerTeam?.established || new Date().getFullYear().toString(),
     logoUrl: managerTeam?.logoUrl || null,
-    activeRosterCount: managerTeam?.activeRosterCount ?? (isDemo ? 3 : 0),
+    activeRosterCount: Math.min(Number(managerTeam?.maxRosterCount || 5), managerTeam?.activeRosterCount ?? (isDemo ? 3 : 0)),
     maxRosterCount: managerTeam?.maxRosterCount ?? 5,
     vision:
       managerTeam?.vision ||
@@ -97,7 +97,7 @@ export const ManagerTeamProfilePage = () => {
         city: managerTeam.city || (isDemo ? "Bandung, Jawa Barat" : ""),
         established: managerTeam.established || new Date().getFullYear().toString(),
         logoUrl: managerTeam.logoUrl || null,
-        activeRosterCount: managerTeam.activeRosterCount ?? (isDemo ? 3 : 0),
+        activeRosterCount: Math.min(Number(managerTeam.maxRosterCount || 5), managerTeam.activeRosterCount ?? (isDemo ? 3 : 0)),
         maxRosterCount: managerTeam.maxRosterCount ?? 5,
         vision:
           managerTeam.vision ||
@@ -186,6 +186,12 @@ export const ManagerTeamProfilePage = () => {
       alert("Nama Tim E-Sports wajib diisi!");
       return;
     }
+    const currentActive = form.activeRosterCount === "" ? 0 : Number(form.activeRosterCount);
+    const currentMax = Number(form.maxRosterCount) || 5;
+    if (currentActive > currentMax) {
+      alert(`Jumlah pemain aktif saat ini (${currentActive}) tidak boleh melebihi target roster maksimal (${currentMax})!`);
+      return;
+    }
     setShowConfirmModal(true);
   };
 
@@ -194,10 +200,14 @@ export const ManagerTeamProfilePage = () => {
     setIsSaving(true);
     const isUpdate = Boolean(managerTeam?.isProfileCompleted || (managerTeam && managerTeam.name));
     try {
+      const parsedActive = form.activeRosterCount === "" ? 0 : Math.max(0, Number(form.activeRosterCount));
+      const parsedMax = Math.max(1, Number(form.maxRosterCount) || 5);
+      const safeActive = Math.min(parsedMax, parsedActive);
+
       await updateManagerTeam({
         ...form,
-        activeRosterCount: form.activeRosterCount === "" ? 0 : Math.max(0, Number(form.activeRosterCount)),
-        maxRosterCount: Number(form.maxRosterCount) || 5,
+        activeRosterCount: safeActive,
+        maxRosterCount: parsedMax,
         recruitmentMinScore: Number(form.recruitmentMinScore) || 75.0,
         recruitmentRole: form.neededRoles.join(", ") || "All Roles",
       });
@@ -436,7 +446,7 @@ export const ManagerTeamProfilePage = () => {
                     <input
                       type="number"
                       min="0"
-                      max="10"
+                      max={form.maxRosterCount || 5}
                       value={form.activeRosterCount}
                       onChange={(e) => {
                         const val = e.target.value;
@@ -444,7 +454,8 @@ export const ManagerTeamProfilePage = () => {
                           handleChange("activeRosterCount", "");
                         } else {
                           const parsed = parseInt(val, 10);
-                          handleChange("activeRosterCount", isNaN(parsed) ? 0 : Math.max(0, parsed));
+                          const limitMax = Number(form.maxRosterCount) || 5;
+                          handleChange("activeRosterCount", isNaN(parsed) ? 0 : Math.min(limitMax, Math.max(0, parsed)));
                         }
                       }}
                       className="w-full px-3 py-2 rounded-xl bg-white dark:bg-zinc-900 border border-zinc-300 dark:border-zinc-700 text-zinc-900 dark:text-zinc-100 font-mono font-bold text-sm focus:outline-none focus:border-red-600"
@@ -460,7 +471,13 @@ export const ManagerTeamProfilePage = () => {
                       min="4"
                       max="10"
                       value={form.maxRosterCount}
-                      onChange={(e) => handleChange("maxRosterCount", parseInt(e.target.value) || 5)}
+                      onChange={(e) => {
+                        const newMax = Math.max(1, parseInt(e.target.value, 10) || 5);
+                        handleChange("maxRosterCount", newMax);
+                        if (form.activeRosterCount !== "" && Number(form.activeRosterCount) > newMax) {
+                          handleChange("activeRosterCount", newMax);
+                        }
+                      }}
                       className="w-full px-3 py-2 rounded-xl bg-white dark:bg-zinc-900 border border-zinc-300 dark:border-zinc-700 text-zinc-900 dark:text-zinc-100 font-mono font-bold text-sm focus:outline-none focus:border-red-600"
                     />
                   </div>
@@ -750,7 +767,7 @@ export const ManagerTeamProfilePage = () => {
 
               {/* Status Badge */}
               <div className="shrink-0">
-                {form.openRecruitment ? (
+                {form.openRecruitment && remainingSlots > 0 ? (
                   <span className="px-2.5 py-1 rounded-full text-[10px] font-gaming font-bold uppercase tracking-wider bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 flex items-center gap-1.5 shadow-sm">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
                     OPEN TRIAL
@@ -771,7 +788,7 @@ export const ManagerTeamProfilePage = () => {
                   Roster Terisi:
                 </span>
                 <span className="font-bold text-zinc-900 dark:text-white">
-                  {form.activeRosterCount === "" ? 0 : form.activeRosterCount} / {form.maxRosterCount} Pemain ({remainingSlots} Slot Terbuka)
+                  {form.activeRosterCount === "" ? 0 : form.activeRosterCount} / {form.maxRosterCount} Pemain ({remainingSlots > 0 ? `${remainingSlots} Slot Terbuka` : "Roster Penuh"})
                 </span>
               </div>
               <div className="w-full h-2 rounded-full bg-zinc-200 dark:bg-zinc-800 overflow-hidden">

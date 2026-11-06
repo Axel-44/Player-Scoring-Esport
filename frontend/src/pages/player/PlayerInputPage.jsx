@@ -170,10 +170,10 @@ export const PlayerInputPage = () => {
   }, [playerProfile]);
 
   const availableRoles = [
-    { value: "Rusher / Fragger", label: "Rusher / Fragger ⚡" },
-    { value: "Sniper / Marksman", label: "Sniper / Marksman 🎯" },
-    { value: "Zone Controller", label: "Zone Controller 🛡️" },
-    { value: "Support / IGL", label: "Support / IGL 🧠" },
+    { value: "Rusher / Fragger", label: "Rusher / Fragger" },
+    { value: "Sniper / Marksman", label: "Sniper / Marksman" },
+    { value: "Zone Controller", label: "Zone Controller" },
+    { value: "Support / IGL", label: "Support / IGL" },
   ];
 
   const tiers = [

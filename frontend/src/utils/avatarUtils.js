@@ -193,7 +193,7 @@ export function getPlayerRoleInfo(player) {
       return {
         title: "Rusher / Fragger",
         category: "Fraggers",
-        tag: "⚡ ENTRY FRAGGER",
+        tag: "ENTRY FRAGGER",
         color: "from-rose-500 to-amber-500",
         textColor: "text-rose-400",
         bgBadge: "bg-rose-950/60 border-rose-500/40 text-rose-300",
@@ -203,7 +203,7 @@ export function getPlayerRoleInfo(player) {
       return {
         title: "Sniper / Marksman",
         category: "Snipers",
-        tag: "🎯 SHARPSHOOTER",
+        tag: "SHARPSHOOTER",
         color: "from-zinc-700 to-zinc-900",
         textColor: "text-zinc-200",
         bgBadge: "bg-zinc-800 border-zinc-700 text-zinc-300",
@@ -213,7 +213,7 @@ export function getPlayerRoleInfo(player) {
       return {
         title: "Zone Controller",
         category: "Zone Controllers",
-        tag: "🛡️ ZONE ANCHOR",
+        tag: "ZONE ANCHOR",
         color: "from-zinc-700 to-zinc-900",
         textColor: "text-zinc-200",
         bgBadge: "bg-zinc-800 border-zinc-700 text-zinc-300",
@@ -223,7 +223,7 @@ export function getPlayerRoleInfo(player) {
       return {
         title: "Support / IGL",
         category: "Support / IGL",
-        tag: "🧠 PLAYMAKER",
+        tag: "PLAYMAKER",
         color: "from-zinc-700 to-zinc-900",
         textColor: "text-zinc-200",
         bgBadge: "bg-zinc-800 border-zinc-700 text-zinc-300",
@@ -244,7 +244,7 @@ export function getPlayerRoleInfo(player) {
     return {
       title: "Rusher / Fragger",
       category: "Fraggers",
-      tag: "⚡ ENTRY FRAGGER",
+      tag: "ENTRY FRAGGER",
       color: "from-rose-500 to-amber-500",
       textColor: "text-rose-400",
       bgBadge: "bg-rose-950/60 border-rose-500/40 text-rose-300",
@@ -254,7 +254,7 @@ export function getPlayerRoleInfo(player) {
     return {
       title: "Sniper / Marksman",
       category: "Snipers",
-      tag: "🎯 SHARPSHOOTER",
+      tag: "SHARPSHOOTER",
       color: "from-zinc-700 to-zinc-900",
       textColor: "text-zinc-200",
       bgBadge: "bg-zinc-800 border-zinc-700 text-zinc-300",
@@ -264,7 +264,7 @@ export function getPlayerRoleInfo(player) {
     return {
       title: "Zone Controller",
       category: "Zone Controllers",
-      tag: "🛡️ ZONE ANCHOR",
+      tag: "ZONE ANCHOR",
       color: "from-zinc-700 to-zinc-900",
       textColor: "text-zinc-200",
       bgBadge: "bg-zinc-800 border-zinc-700 text-zinc-300",
@@ -274,7 +274,7 @@ export function getPlayerRoleInfo(player) {
     return {
       title: "Support / IGL",
       category: "Support / IGL",
-      tag: "🧠 PLAYMAKER",
+      tag: "PLAYMAKER",
       color: "from-zinc-700 to-zinc-900",
       textColor: "text-zinc-200",
       bgBadge: "bg-zinc-800 border-zinc-700 text-zinc-300",

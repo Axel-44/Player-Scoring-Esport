@@ -564,8 +564,8 @@ export const PlayerStoreProvider = ({ children }) => {
           established: String(t.established || "2026"),
           logoUrl: t.logo_url || null,
           logoText: t.tag || t.name?.slice(0, 3).toUpperCase() || "MGR",
-          activeRosterCount: t.active_roster_count ?? 0,
-          maxRosterCount: t.max_roster_count || 5,
+          activeRosterCount: Math.min(Number(t.max_roster_count || 5), Math.max(0, Number(t.active_roster_count ?? 0))),
+          maxRosterCount: Number(t.max_roster_count || 5),
           vision: t.vision || "",
           mission: t.mission || "",
           openRecruitment: t.open_recruitment ?? true,
@@ -611,9 +611,15 @@ export const PlayerStoreProvider = ({ children }) => {
   });
 
   const updateManagerTeam = async (newTeamData) => {
+    const rawMax = Math.max(1, Number(newTeamData.maxRosterCount) || 5);
+    const rawActive = newTeamData.activeRosterCount === "" ? 0 : Math.max(0, Number(newTeamData.activeRosterCount));
+    const safeActive = Math.min(rawMax, rawActive);
+
     const updated = {
       ...managerTeam,
       ...newTeamData,
+      activeRosterCount: safeActive,
+      maxRosterCount: rawMax,
       isProfileCompleted: true,
       isManagerCreated: true,
     };
@@ -980,8 +986,8 @@ export const PlayerStoreProvider = ({ children }) => {
               logoUrl: data.logo_url || null,
               logoText: data.tag || data.name?.slice(0, 3).toUpperCase() || "MGR",
               badgeColor: "from-zinc-800 to-zinc-950",
-              activeRosterCount: data.active_roster_count ?? 0,
-              maxRosterCount: data.max_roster_count || 5,
+              activeRosterCount: Math.min(Number(data.max_roster_count || 5), Math.max(0, Number(data.active_roster_count ?? 0))),
+              maxRosterCount: Number(data.max_roster_count || 5),
               vision: data.vision || "",
               mission: data.mission || "",
               openRecruitment: data.open_recruitment ?? true,

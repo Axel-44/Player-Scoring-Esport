@@ -103,10 +103,10 @@ export const LeaderboardPage = ({ hideHeroSlider = false }) => {
 
   const roleCategories = [
     { id: "ALL", label: "Semua Role", icon: Trophy },
-    { id: "Fraggers", label: "Rusher / Fragger ⚡", icon: Flame },
-    { id: "Snipers", label: "Sniper / Marksman 🎯", icon: Target },
-    { id: "Zone Controllers", label: "Zone Controller 🛡️", icon: Shield },
-    { id: "Support / IGL", label: "Support / IGL 🧠", icon: Activity },
+    { id: "Fraggers", label: "Rusher / Fragger" },
+    { id: "Snipers", label: "Sniper / Marksman" },
+    { id: "Zone Controllers", label: "Zone Controller" },
+    { id: "Support / IGL", label: "Support / IGL" },
   ];
 
   const showToast = (msg) => {
