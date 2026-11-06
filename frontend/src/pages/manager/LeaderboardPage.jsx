@@ -636,7 +636,7 @@ export const LeaderboardPage = ({ hideHeroSlider = false }) => {
                   : "bg-zinc-100 dark:bg-zinc-900 hover:bg-zinc-200 dark:hover:bg-zinc-800 text-zinc-700 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-800"
               }`}
             >
-              <Icon className="w-3.5 h-3.5" />
+              {Icon && <Icon className="w-3.5 h-3.5" />}
               <span>{role.label}</span>
             </button>
           );
