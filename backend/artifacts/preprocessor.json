@@ -1,0 +1,54 @@
+{
+  "tier_classes": [
+    "Ace",
+    "Bronze",
+    "Conqueror",
+    "Crown",
+    "Diamond",
+    "Gold",
+    "Platinum",
+    "Silver"
+  ],
+  "feature_names": [
+    "tier_encoded",
+    "kills",
+    "damage_dealt",
+    "survival_time_minutes",
+    "headshot_percentage",
+    "assists",
+    "revives",
+    "distance_travelled_km",
+    "longest_kill_meters",
+    "heals_used",
+    "boosts_used",
+    "match_rank"
+  ],
+  "scale_": [
+    0.14285714285714285,
+    0.08333333333333333,
+    0.001154081408902584,
+    0.04,
+    0.018195050946142648,
+    0.2,
+    0.25,
+    0.13333333333333333,
+    0.0028997274256219916,
+    0.1111111111111111,
+    0.14285714285714285,
+    0.010101010101010102
+  ],
+  "min_": [
+    0.0,
+    0.0,
+    0.0,
+    -0.2,
+    -0.09152110625909753,
+    0.0,
+    0.0,
+    -0.06666666666666667,
+    -0.014730615322159718,
+    0.0,
+    0.0,
+    -0.010101010101010102
+  ]
+}
