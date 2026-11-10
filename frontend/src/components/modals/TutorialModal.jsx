@@ -66,7 +66,7 @@ export const TutorialModal = ({ isOpen, onClose, initialRole = "player" }) => {
       title: "Lengkapi Identitas & Profil Atlet",
       image: "/tutorial/player-step1-profile.png",
       description:
-        "Buka menu **Profil Saya**, lalu klik tombol **Edit Profil**. Lengkapi Nickname (IGN), ID Game PUBG Mobile, Role spesialisasi squad, dan kontak resmi (WhatsApp/Instagram) Anda agar profil Anda terverifikasi dan dapat dihubungi oleh manajer tim e-sports.",
+        "Buka menu profil, lalu klik tombol edit profil. Disana kamu harus mengisi data Lengkap muali dari Nickname (IGN), ID Game PUBG Mobile, Role spesialisasi squad, dan kontak resmi (WhatsApp/Instagram) Anda agar profil Anda terverifikasi dan dapat dihubungi oleh manajer tim e-sports.",
       actionLabel: "Buka Halaman Profil",
       actionUrl: "/player/profile",
       highlights: [
@@ -81,11 +81,11 @@ export const TutorialModal = ({ isOpen, onClose, initialRole = "player" }) => {
       title: "Input Statistik Pertandingan & Bukti Match",
       image: "/tutorial/player-step2-input.png",
       description:
-        "Buka menu **Kalkulasi Skor**. Masukkan parameter performa pasca pertandingan Anda (Kills, Damage, Survival Time, Match Rank, dll) dan lampirkan tangkapan layar (screenshot) hasil game PUBG Mobile sebagai bukti verifikasi autentik.",
+        "Buka menu Kalkulasi Skor pada bagian sidebar. Disana ada beberapa parameter / kolom yang perlu di isi untuk mendapatkan skor yang dimana parameter ini bisa kamu lihat di hasil pertandinganmu ya... mulai dari (Kills, Damage, Survival Time, Match Rank, dll) dan lampirkan tangkapan layar (screenshot) hasil game PUBG Mobile sebagai bukti kuat kamu bermain dengan statistik yang kamu dapat itu!.",
       actionLabel: "Buka Kalkulasi Skor",
       actionUrl: "/player/input",
       highlights: [
-        "Isi metrik eliminasi, damage dealt, dan menit survival",
+        "Isi semua kolom dari eliminasi, damage dealt, dan menit survival",
         "Unggah screenshot hasil pertandingan resmi",
         "Sistem memvalidasi batas rasional metrik per map",
       ],
@@ -93,16 +93,16 @@ export const TutorialModal = ({ isOpen, onClose, initialRole = "player" }) => {
     {
       stepNumber: 3,
       badge: "LANGKAH 3 DARI 6",
-      title: "Analisis Hasil Skor AI XGBoost & Tren Performa",
+      title: "Analisis Hasil Skor AI XGBoost & Riwayat Performa",
       image: "/tutorial/player-step3-hasil skor.png",
       description:
-        "Model Machine Learning XGBoost akan langsung mengalkulasi skor performa Anda (skala 0–100) serta mengklasifikasikan tier keahlian Anda (Master, Ace, Crown, dll). Pantau riwayat seluruh pertandingan dan grafik tren perkembangan skor Anda.",
+        "Setelah kamu selesai mengisi semua data di kolom kalkulasi skor, Model XGBoost akan langsung mengkalkulasi skor performa kamu, kamu juga bisa melihat perkembangan performa yang kamu dapat dari beberapa pertandingan yang sudah  inputkan di kalkuasi itu dapat dilihat dari grafik pada halaman riwayat perkembangan skor, disitu anda juga bisa mengatur statistik mana yang mau diunggah ke leaderboard atau di privasi hanya profil anda saja",
       actionLabel: "Lihat Riwayat Skor",
       actionUrl: "/player/history",
       highlights: [
         "Skor dihitung otomatis secara objektif oleh model XGBoost",
-        "Pantau grafik tren kenaikan performa per match",
-        "Dapatkan tombol publikasi langsung ke Leaderboard",
+        "Player dapat melihat grafik tren kenaikan performa per match",
+        "Player dapat mengatur statistik mana yang mau diunggah ke leaderboard atau di privasi hanya profil anda saja",
       ],
     },
     {
@@ -111,11 +111,11 @@ export const TutorialModal = ({ isOpen, onClose, initialRole = "player" }) => {
       title: "Kartu Scout Vision Resmi & 5 Pilar Atribut",
       image: "/tutorial/player-step4-kartu vision.png",
       description:
-        "Buka menu **Profil Saya** untuk melihat **Kartu Scout Vision Resmi** Anda. Kartu ini merangkum 5 pilar atribut tempur: Combat Power, Aim Accuracy, Survival Zone, Tactical IQ, dan Squad Utility yang siap diekspor menjadi dokumen laporan PDF profesional.",
+        "Buka menu Profil Saya untuk melihat Kartu Scout Vision Anda. Kartu ini merangkum 5 pilar atribut tempur: Combat Power, Aim Accuracy, Survival Zone, Tactical IQ, dan Squad Utility yang siap diekspor menjadi dokumen laporan PDF yang bisa player download di akhir.",
       actionLabel: "Cek Kartu Vision Saya",
       actionUrl: "/player/profile",
       highlights: [
-        "Visualisasi 5 pilar atribut tempur e-sports",
+        "Visualisasi atribut tempur e-sports",
         "Dilengkapi foto profil atlet dan ringkasan match terbaik",
         "Dapat dicetak menjadi dokumen laporan scouting resmi PDF",
       ],
@@ -123,15 +123,15 @@ export const TutorialModal = ({ isOpen, onClose, initialRole = "player" }) => {
     {
       stepNumber: 5,
       badge: "LANGKAH 5 DARI 6",
-      title: "Tampil di Leaderboard Nasional & Spotlight Talenta",
+      title: "Tampil di Leaderboard & Spotlight Talenta",
       image: "/tutorial/player-step5-leaderboard.png",
       description:
-        "Publikasikan skor terbaik Anda ke Leaderboard nasional! Nama, tier, foto, dan skor Anda akan resmi masuk ke jajaran atlet top nasional serta berpeluang masuk ke panel **Kandidat Spotlight** yang dipantau setiap hari oleh manajer tim e-sports.",
-      actionLabel: "Buka Leaderboard Nasional",
+        "Publikasikan skor terbaik Anda ke Leaderboard! Nama, tier, foto, dan skor Anda akan resmi masuk ke jajaran atlet lainnya serta berpeluang masuk ke panel Kandidat Spotlight yang dipantau setiap hari oleh manajer tim e-sports, anda juga dapat melihat profil performa pemain lain sebagai pembanding untuk bisa mengukur kemampuan anda dalam bersaing di setiap map nya!.",
+      actionLabel: "Buka Leaderboard ",
       actionUrl: "/manager/leaderboard",
       highlights: [
-        "Peringkat ranking terbuka nasional berdasarkan skor AI",
-        "Panel spotlight sorotan khusus untuk atlet performa tinggi",
+        "Peringkat teratas berdasarkan skor ",
+        "Jadikan sebagai pembanding untuk mengukur kemampuan anda dalam bersaing dengan player lain",
         "Peluang dilirik langsung oleh manajer dan pelatih e-sports",
       ],
     },
@@ -141,7 +141,7 @@ export const TutorialModal = ({ isOpen, onClose, initialRole = "player" }) => {
       title: "Lamar Open Trial & Simpan Wishlist Tim Impian",
       image: "/tutorial/player-step6-whislist tim.png",
       description:
-        "Kunjungi menu **Bursa & Roster Tim** untuk mencari tim e-sports yang sedang membuka lowongan *Open Trial*. Cek evaluasi kelayakan skor Anda dan klik tombol WhatsApp untuk langsung mengirim lamaran trial ke manajer tim.",
+        "Kunjungi menu Bursa & Roster Tim untuk mencari tim e-sports yang sedang membuka lowongan Open Trial. Cek evaluasi kelayakan skor Anda dan klik tombol WhatsApp untuk menghubungi manager tim e-sports terkait.",
       actionLabel: "Jelajahi Bursa Tim",
       actionUrl: "/teams",
       highlights: [
@@ -160,7 +160,7 @@ export const TutorialModal = ({ isOpen, onClose, initialRole = "player" }) => {
       title: "Atur Profil Tim, Kuota Roster & Syarat Trial",
       image: "/tutorial/manager-step1-melengkapi profilt tim.png",
       description:
-        "Buka menu **Profil Tim Saya**. Masukkan nama tim, logo organisasi, visi, misi, kuota roster aktif, role yang sedang dicari, dan tentukan **Batas Minimal Skor AI** untuk calon atlet yang ingin mendaftar sesi uji tanding (scrim trial).",
+        "Buka menu Profil Tim Saya. Masukkan nama tim, logo organisasi, visi, misi, kuota roster aktif, role yang sedang dicari, dan tentukan berapa minimal skor performa yang harus dicapai oleh calon atlet yang ingin mendaftar sesi uji tanding (scrim trial).",
       actionLabel: "Kelola Profil Tim",
       actionUrl: "/manager/team-profile",
       highlights: [
@@ -175,7 +175,7 @@ export const TutorialModal = ({ isOpen, onClose, initialRole = "player" }) => {
       title: "Scouting Talenta & Tandai Pemain untuk Dikomparasi",
       image: "/tutorial/manager-step2-kehalaman leaderboard untuk meng bandingkan player lalu buka halaman komparasi.png",
       description:
-        "Buka menu **Leaderboard**. Manfaatkan tab filter role (Rusher, Sniper, Zone Controller, Support) dan slider batas skor. Klik tombol **KOMPARASI** pada hingga 3 kandidat atlet yang ingin Anda bandingkan statistiknya secara langsung.",
+        "Buka menu Leaderboard. Disini anda sebagai manager bisa melihat daftar para pemain yang sudah terdaftar di platform ini, anda juga bisa memfilter pemain berdasarkan role dan skor yang anda inginkan, jika sudah menemukan pemain yang cocok maka lanjutkan dengan menekan tombol komparasi untuk membandingkan pemain dengan atlet lainnya.",
       actionLabel: "Buka Scouting Leaderboard",
       actionUrl: "/manager/leaderboard",
       highlights: [
@@ -190,7 +190,7 @@ export const TutorialModal = ({ isOpen, onClose, initialRole = "player" }) => {
       title: "Buka Halaman Komparasi Head-to-Head",
       image: "/tutorial/manager-step3-melihat hasil banding di halaman komparasi.png",
       description:
-        "Buka menu **Komparasi Pemain**. Sistem akan menjejerkan 2 hingga 3 kandidat terpilih secara berdampingan lengkap dengan skor Machine Learning, tier klasifikasi, dan ringkasan rank pertandingan mereka.",
+        "Selanjutnya jika anda merasa tertarik ke beberapa player pilihan anda , klik tombol komparasi pada kartu visionplayer yang ingin anda bandingkan statistik nya,setelah sudah dipilih player nya, buka halaman komparasi dimana . Sistem akan menjejerkan 2 hingga 3 kandidat terpilih secara berdampingan lengkap dengan skor , tier klasifikasi, dan ringkasan rank pertandingan mereka.",
       actionLabel: "Buka Komparasi Pemain",
       actionUrl: "/manager/compare",
       highlights: [
@@ -205,13 +205,13 @@ export const TutorialModal = ({ isOpen, onClose, initialRole = "player" }) => {
       title: "Analisis Matriks Evaluasi & Radar Multi-Axis",
       image: "/tutorial/manager-step3-head to head dari player .png",
       description:
-        "Telusuri grafik **Multi-Axis Radar Comparison** dan tabel matriks evaluasi head-to-head untuk membandingkan metrik penting seperti K/D ratio, akurasi headshot, jarak eliminasi terjauh, dan efisiensi utilitas tim.",
+        "Player yang sudah anda pilih tadi sekarang tampil di halaman komparasi, halaman ini akan membandingkan statistik player yang anda pilih berdasarkan statistik yang mereka miliki, mulai dari Combat Power, Aim Accuracy, Survival Zone, Tactical IQ, dan Squad Utility, dihalaman inilah anda bisa melihat keunggulan dan kekurangan dari masing masing player, dan sebagai pengingat perbandingan dilakukan harus dengan map yang sama agar perbandingan lebih akurat.",
       actionLabel: "Cek Matriks Head-to-Head",
       actionUrl: "/manager/compare",
       highlights: [
-        "Grafik radar 5 dimensi kemampuan tempur atlet",
+        "Tampilan grafik perbandingan player",
         "Matriks angka statistik perbandingan langsung",
-        "Penanda lencana hijau otomatis untuk metrik terbaik",
+        "Perbandingan untuk mencari player yang di incar",
       ],
     },
     {
@@ -220,7 +220,7 @@ export const TutorialModal = ({ isOpen, onClose, initialRole = "player" }) => {
       title: "Simpan ke Daftar Incaran & Kirim Undangan Trial",
       image: "/tutorial/manager-step4-melakukan pemilihan player.png",
       description:
-        "Setelah menemukan talenta terbaik, klik tombol **+ INCAR PEMAIN**. Tulis pesan personal atau undangan uji tanding (scrim trial) yang akan otomatis terkirim sebagai notifikasi resmi ke akun atlet serta membuka kontak langsung via WhatsApp.",
+        "Terakhir jika kamu sudah merasa tertarik dengan player pilihanmu, klik tombol incar player yang berada di halaman komparasi untuk menyimpan player ke dalam daftar incaranmu kirim dia pesan bahwa anda tertarik dengan performanya untuk bisa bergabung dengan tim!.",
       actionLabel: "Buka Daftar Incaran",
       actionUrl: "/manager/shortlists",
       highlights: [
@@ -257,7 +257,7 @@ export const TutorialModal = ({ isOpen, onClose, initialRole = "player" }) => {
     <>
       <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 md:p-6 bg-black/80 backdrop-blur-md animate-fadeIn">
         <div className="relative w-full max-w-5xl max-h-[92vh] flex flex-col rounded-3xl bg-white dark:bg-[#18181b] border border-zinc-200 dark:border-zinc-800 shadow-2xl overflow-hidden text-zinc-900 dark:text-zinc-100 animate-scaleUp">
-          
+
           {/* ============================================================== */}
           {/* 1. MODAL HEADER                                                */}
           {/* ============================================================== */}
@@ -298,11 +298,10 @@ export const TutorialModal = ({ isOpen, onClose, initialRole = "player" }) => {
               <button
                 type="button"
                 onClick={() => handleTabChange("player")}
-                className={`flex-1 sm:flex-none px-4 py-1.5 rounded-lg text-xs font-gaming font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer ${
-                  activeTab === "player"
-                    ? "bg-red-600 text-white shadow-sm"
-                    : "text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white"
-                }`}
+                className={`flex-1 sm:flex-none px-4 py-1.5 rounded-lg text-xs font-gaming font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer ${activeTab === "player"
+                  ? "bg-red-600 text-white shadow-sm"
+                  : "text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white"
+                  }`}
               >
                 <User className="w-3.5 h-3.5" />
                 <span>Panduan Atlet (Player)</span>
@@ -314,11 +313,10 @@ export const TutorialModal = ({ isOpen, onClose, initialRole = "player" }) => {
               <button
                 type="button"
                 onClick={() => handleTabChange("manager")}
-                className={`flex-1 sm:flex-none px-4 py-1.5 rounded-lg text-xs font-gaming font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer ${
-                  activeTab === "manager"
-                    ? "bg-red-600 text-white shadow-sm"
-                    : "text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white"
-                }`}
+                className={`flex-1 sm:flex-none px-4 py-1.5 rounded-lg text-xs font-gaming font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer ${activeTab === "manager"
+                  ? "bg-red-600 text-white shadow-sm"
+                  : "text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white"
+                  }`}
               >
                 <Shield className="w-3.5 h-3.5" />
                 <span>Panduan Manajer (Manager)</span>
@@ -335,11 +333,10 @@ export const TutorialModal = ({ isOpen, onClose, initialRole = "player" }) => {
                   key={idx}
                   type="button"
                   onClick={() => setCurrentStepIndex(idx)}
-                  className={`w-7 h-7 rounded-lg text-xs font-mono font-bold transition-all flex items-center justify-center cursor-pointer ${
-                    currentStepIndex === idx
-                      ? "bg-red-600 text-white shadow-sm scale-105"
-                      : "bg-zinc-100 dark:bg-zinc-800 text-zinc-500 hover:bg-zinc-200 dark:hover:bg-zinc-700 hover:text-zinc-900 dark:hover:text-white"
-                  }`}
+                  className={`w-7 h-7 rounded-lg text-xs font-mono font-bold transition-all flex items-center justify-center cursor-pointer ${currentStepIndex === idx
+                    ? "bg-red-600 text-white shadow-sm scale-105"
+                    : "bg-zinc-100 dark:bg-zinc-800 text-zinc-500 hover:bg-zinc-200 dark:hover:bg-zinc-700 hover:text-zinc-900 dark:hover:text-white"
+                    }`}
                   title={`Lompat ke Langkah ${idx + 1}`}
                 >
                   {idx + 1}
@@ -356,12 +353,12 @@ export const TutorialModal = ({ isOpen, onClose, initialRole = "player" }) => {
               key={`${activeTab}-${currentStepIndex}`}
               className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center"
             >
-              
+
               {/* ------------------------------------------------------------ */}
               {/* KOLOM KIRI (5 / 12): PENJELASAN & AKSI CEPAT                */}
               {/* ------------------------------------------------------------ */}
               <div className="lg:col-span-5 space-y-4 animate-tutorial-content flex flex-col justify-between">
-                
+
                 {/* Badge Langkah & Kategori */}
                 <div className="space-y-2">
                   <div className="flex items-center gap-2">
@@ -422,7 +419,7 @@ export const TutorialModal = ({ isOpen, onClose, initialRole = "player" }) => {
               {/* ------------------------------------------------------------ */}
               <div className="lg:col-span-7 animate-tutorial-image">
                 <div className="relative group rounded-2xl overflow-hidden border border-zinc-300 dark:border-zinc-800 bg-zinc-950 shadow-xl">
-                  
+
                   {/* Mockup Top Window Bar Minimalis */}
                   <div className="px-3.5 py-2 bg-zinc-900 border-b border-zinc-800 flex items-center justify-between">
                     <div className="flex items-center gap-1.5">
@@ -478,11 +475,10 @@ export const TutorialModal = ({ isOpen, onClose, initialRole = "player" }) => {
               type="button"
               onClick={handlePrev}
               disabled={isFirstStep}
-              className={`px-4 py-2 rounded-xl text-xs font-gaming font-bold uppercase tracking-wider flex items-center gap-1.5 transition-all cursor-pointer ${
-                isFirstStep
-                  ? "opacity-40 cursor-not-allowed text-zinc-400"
-                  : "bg-zinc-200 dark:bg-zinc-800 hover:bg-zinc-300 dark:hover:bg-zinc-700 text-zinc-800 dark:text-zinc-200"
-              }`}
+              className={`px-4 py-2 rounded-xl text-xs font-gaming font-bold uppercase tracking-wider flex items-center gap-1.5 transition-all cursor-pointer ${isFirstStep
+                ? "opacity-40 cursor-not-allowed text-zinc-400"
+                : "bg-zinc-200 dark:bg-zinc-800 hover:bg-zinc-300 dark:hover:bg-zinc-700 text-zinc-800 dark:text-zinc-200"
+                }`}
             >
               <ChevronLeft className="w-4 h-4" />
               <span>Sebelumnya</span>
@@ -495,11 +491,10 @@ export const TutorialModal = ({ isOpen, onClose, initialRole = "player" }) => {
                   key={idx}
                   type="button"
                   onClick={() => setCurrentStepIndex(idx)}
-                  className={`h-2 rounded-full transition-all cursor-pointer ${
-                    currentStepIndex === idx
-                      ? "w-6 bg-red-600"
-                      : "w-2 bg-zinc-300 dark:bg-zinc-700 hover:bg-zinc-400"
-                  }`}
+                  className={`h-2 rounded-full transition-all cursor-pointer ${currentStepIndex === idx
+                    ? "w-6 bg-red-600"
+                    : "w-2 bg-zinc-300 dark:bg-zinc-700 hover:bg-zinc-400"
+                    }`}
                   title={`Langkah ${idx + 1}`}
                 />
               ))}
