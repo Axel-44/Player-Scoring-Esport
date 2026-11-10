@@ -323,15 +323,15 @@ export const TeamDirectoryPage = () => {
             return (
               <div
                 key={team.id}
-                className="rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-300 dark:border-zinc-800 p-5 sm:p-6 flex flex-col justify-between space-y-5 shadow-sm hover:shadow-lg hover:border-zinc-400 dark:hover:border-zinc-700 transition-all duration-200"
+                className="rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-300 dark:border-zinc-800 p-4 sm:p-6 flex flex-col justify-between space-y-4 sm:space-y-5 shadow-sm hover:shadow-lg hover:border-zinc-400 dark:hover:border-zinc-700 transition-all duration-200"
               >
                 <div className="space-y-4">
                   
                   {/* 1. Header Kartu: Logo Tim, Nama, Tag, Badges, Status & Wishlist */}
-                  <div className="flex items-start justify-between gap-3">
-                    <div className="flex items-center gap-3.5">
+                  <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3">
+                    <div className="flex items-center gap-3 min-w-0">
                       {/* Logo Frame */}
-                      <div className="w-14 h-14 rounded-2xl bg-zinc-100 dark:bg-zinc-950 border border-zinc-300 dark:border-zinc-700 overflow-hidden flex items-center justify-center shrink-0 shadow-inner p-1">
+                      <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-zinc-100 dark:bg-zinc-950 border border-zinc-300 dark:border-zinc-700 overflow-hidden flex items-center justify-center shrink-0 shadow-inner p-1">
                         {team.logoUrl ? (
                           <img
                             src={team.logoUrl}
@@ -346,18 +346,18 @@ export const TeamDirectoryPage = () => {
                       </div>
 
                       {/* Info Pokok Tim */}
-                      <div className="space-y-1">
-                        <div className="flex items-center gap-2 flex-wrap">
-                          <h3 className="text-base sm:text-lg font-extrabold text-black dark:text-white uppercase tracking-tight leading-snug">
+                      <div className="space-y-1 min-w-0">
+                        <div className="flex items-center gap-1.5 sm:gap-2 flex-wrap">
+                          <h3 className="text-base sm:text-lg font-extrabold text-black dark:text-white uppercase tracking-tight leading-snug truncate">
                             {team.name}
                           </h3>
                           {team.isVerifiedPro && (
-                            <span className="px-2 py-0.5 rounded bg-blue-500/15 text-blue-700 dark:text-blue-400 border border-blue-500/30 text-xs font-bold uppercase">
+                            <span className="px-1.5 sm:px-2 py-0.5 rounded bg-blue-500/15 text-blue-700 dark:text-blue-400 border border-blue-500/30 text-[10px] sm:text-xs font-bold uppercase">
                               PRO
                             </span>
                           )}
                           {team.isManagerCreated && (
-                            <span className="px-2 py-0.5 rounded bg-red-600/15 text-red-600 dark:text-red-400 border border-red-600/30 text-xs font-bold uppercase">
+                            <span className="px-1.5 sm:px-2 py-0.5 rounded bg-red-600/15 text-red-600 dark:text-red-400 border border-red-600/30 text-[10px] sm:text-xs font-bold uppercase">
                               MANAGER
                             </span>
                           )}
@@ -375,12 +375,12 @@ export const TeamDirectoryPage = () => {
                     </div>
 
                     {/* Status Pill & Wishlist Button */}
-                    <div className="flex items-center gap-2 shrink-0">
+                    <div className="flex items-center justify-between sm:justify-end gap-2 shrink-0 pt-0.5 sm:pt-0">
                       {!isManager && (
                         <button
                           type="button"
                           onClick={() => toggleWishlistTeam(team.id)}
-                          className={`p-2.5 rounded-xl border transition-all cursor-pointer ${
+                          className={`p-2 sm:p-2.5 rounded-xl border transition-all cursor-pointer ${
                             isWishlisted
                               ? "bg-red-600 text-white border-red-500 shadow-sm"
                               : "bg-zinc-100 dark:bg-zinc-800 text-zinc-500 hover:text-black dark:hover:text-white border-zinc-300 dark:border-zinc-700"
@@ -392,12 +392,12 @@ export const TeamDirectoryPage = () => {
                       )}
 
                       {isOpenTrial ? (
-                        <span className="px-3 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider bg-emerald-500/15 text-emerald-700 dark:text-emerald-400 border border-emerald-500/40 flex items-center gap-1.5 shadow-sm">
+                        <span className="px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full text-[11px] sm:text-xs font-bold uppercase tracking-wider bg-emerald-500/15 text-emerald-700 dark:text-emerald-400 border border-emerald-500/40 flex items-center gap-1.5 shadow-sm whitespace-nowrap">
                           <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
                           Open Trial
                         </span>
                       ) : (
-                        <span className="px-3 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider bg-zinc-200 dark:bg-zinc-800 text-black dark:text-white border border-zinc-300 dark:border-zinc-700">
+                        <span className="px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full text-[11px] sm:text-xs font-bold uppercase tracking-wider bg-zinc-200 dark:bg-zinc-800 text-black dark:text-white border border-zinc-300 dark:border-zinc-700 whitespace-nowrap">
                           Roster Penuh
                         </span>
                       )}
@@ -500,15 +500,15 @@ export const TeamDirectoryPage = () => {
 
                     {/* Evaluasi Kelayakan Player */}
                     {!isManager && team.openRecruitment && (
-                      <div className="pt-2 flex items-center justify-between text-xs font-medium text-black dark:text-white">
+                      <div className="pt-2 flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 text-xs font-medium text-black dark:text-white">
                         <span>Evaluasi Talenta ML:</span>
                         {isScoreEligible ? (
-                          <span className="inline-flex items-center gap-1 text-emerald-700 dark:text-emerald-400 font-bold bg-emerald-500/15 px-2.5 py-1 rounded-md border border-emerald-500/40 text-xs">
+                          <span className="inline-flex items-center gap-1 text-emerald-700 dark:text-emerald-400 font-bold bg-emerald-500/15 px-2.5 py-1 rounded-md border border-emerald-500/40 text-xs w-fit">
                             <Check className="w-3.5 h-3.5" />
                             Siap Trial ({playerBestScore.toFixed(1)} ≥ {team.recruitmentMinScore})
                           </span>
                         ) : (
-                          <span className="inline-flex items-center gap-1 text-amber-700 dark:text-amber-400 font-bold bg-amber-500/15 px-2.5 py-1 rounded-md border border-amber-500/40 text-xs">
+                          <span className="inline-flex items-center gap-1 text-amber-700 dark:text-amber-400 font-bold bg-amber-500/15 px-2.5 py-1 rounded-md border border-amber-500/40 text-xs w-fit">
                             <AlertCircle className="w-3.5 h-3.5" />
                             Butuh +{scoreGap} Skor Lagi
                           </span>

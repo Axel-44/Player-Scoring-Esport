@@ -131,30 +131,30 @@ export const MainLayout = () => {
   // Judul halaman aktif untuk breadcrumb top bar
   const getPageInfo = (pathname) => {
     if (pathname.includes("/player/dashboard"))
-      return { title: "DASHBOARD KARIR ATLET", tag: "MY CAREER" };
+      return { title: "DASHBOARD KARIR ATLET", shortTitle: "DASHBOARD", tag: "MY CAREER" };
     if (pathname.includes("/player/profile"))
-      return { title: "PROFIL ATLET & KARTU VISION", tag: "PROFILE" };
+      return { title: "PROFIL ATLET & KARTU VISION", shortTitle: "PROFIL", tag: "PROFILE" };
     if (pathname.includes("/player/input"))
-      return { title: "EVALUASI STATISTIK PERTANDINGAN", tag: "XGBOOST ML" };
+      return { title: "EVALUASI STATISTIK PERTANDINGAN", shortTitle: "KALKULASI SKOR", tag: "XGBOOST ML" };
     if (pathname.includes("/player/history"))
-      return { title: "RIWAYAT SKOR & PERKEMBANGAN", tag: "ANALYTICS" };
+      return { title: "RIWAYAT SKOR & PERKEMBANGAN", shortTitle: "RIWAYAT SKOR", tag: "ANALYTICS" };
     if (pathname.includes("/manager/dashboard"))
-      return { title: "DASHBOARD ANALITIK TALENTA", tag: "MANAGEMENT" };
+      return { title: "DASHBOARD ANALITIK TALENTA", shortTitle: "DASHBOARD", tag: "MANAGEMENT" };
     if (pathname.includes("/manager/leaderboard"))
-      return { title: "E-SPORTS ROSTER LEADERBOARD", tag: "SCOUTING" };
+      return { title: "E-SPORTS ROSTER LEADERBOARD", shortTitle: "LEADERBOARD", tag: "SCOUTING" };
     if (pathname.includes("/manager/compare"))
-      return { title: "KOMPARASI HEAD-TO-HEAD", tag: "RADAR COMPARE" };
+      return { title: "KOMPARASI HEAD-TO-HEAD", shortTitle: "KOMPARASI", tag: "RADAR COMPARE" };
     if (pathname.includes("/manager/shortlists"))
-      return { title: "SHORTLIST SQUAD KANDIDAT", tag: "RECRUITMENT" };
+      return { title: "SHORTLIST SQUAD KANDIDAT", shortTitle: "SHORTLIST", tag: "RECRUITMENT" };
     if (pathname.includes("/about-model"))
-      return { title: "DOKUMENTASI MODEL MACHINE LEARNING", tag: "DOCS" };
+      return { title: "DOKUMENTASI MODEL MACHINE LEARNING", shortTitle: "TENTANG MODEL", tag: "DOCS" };
     if (pathname.includes("/esports"))
-      return { title: "PORTAL ESPORTS & TOURNAMENT HUB", tag: "LIQUIPEDIA" };
+      return { title: "PORTAL ESPORTS & TOURNAMENT HUB", shortTitle: "ESPORTS HUB", tag: "LIQUIPEDIA" };
     if (pathname.includes("/manager/team-profile"))
-      return { title: "MANAJEMEN PROFIL TIM & ROSTER", tag: "MY TEAM" };
+      return { title: "MANAJEMEN PROFIL TIM & ROSTER", shortTitle: "PROFIL TIM", tag: "MY TEAM" };
     if (pathname.includes("/teams"))
-      return { title: "DIREKTORI TIM ESPORTS & BURSA REKRUTMEN", tag: "TEAM HUB" };
-    return { title: "PULSE SCOUT TALENT SYSTEM", tag: "PUBG MOBILE" };
+      return { title: "DIREKTORI TIM ESPORTS & BURSA REKRUTMEN", shortTitle: "BURSA TIM", tag: "TEAM HUB" };
+    return { title: "PULSE SCOUT TALENT SYSTEM", shortTitle: "PULSESCOUT", tag: "PUBG MOBILE" };
   };
 
   const currentPage = getPageInfo(location.pathname);
@@ -606,31 +606,32 @@ export const MainLayout = () => {
         )}
 
         {/* Top Header Navbar */}
-        <header className="sticky top-0 z-30 h-16 bg-white/95 dark:bg-[#18181b]/95 border-b border-zinc-200 dark:border-zinc-800 backdrop-blur-md px-4 sm:px-6 flex items-center justify-between transition-colors duration-300">
-          <div className="flex items-center gap-3">
+        <header className="sticky top-0 z-30 h-16 bg-white/95 dark:bg-[#18181b]/95 border-b border-zinc-200 dark:border-zinc-800 backdrop-blur-md px-3 sm:px-6 flex items-center justify-between transition-colors duration-300">
+          <div className="flex items-center gap-2 sm:gap-3 min-w-0">
             {/* Mobile Menu Button */}
             <button
               onClick={() => setMobileDrawerOpen(true)}
-              className="md:hidden p-2 rounded-lg text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800 border border-zinc-200 dark:border-zinc-800 cursor-pointer"
+              className="md:hidden p-2 rounded-lg text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800 border border-zinc-200 dark:border-zinc-800 cursor-pointer shrink-0"
               title="Buka Navigasi"
             >
               <Menu className="w-5 h-5" />
             </button>
 
-            {/* Page Breadcrumb Title */}
-            <div className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-red-600" />
-              <h1 className="text-xs sm:text-sm font-gaming font-bold tracking-wider text-zinc-900 dark:text-zinc-100 uppercase">
-                {currentPage.title}
+            {/* Page Breadcrumb Title (Ringkas di HP, Lengkap di Desktop) */}
+            <div className="flex items-center gap-1.5 sm:gap-2 min-w-0">
+              <span className="w-1.5 h-1.5 rounded-full bg-red-600 shrink-0" />
+              <h1 className="text-xs sm:text-sm font-gaming font-bold tracking-wider text-zinc-900 dark:text-zinc-100 uppercase truncate">
+                <span className="inline sm:hidden">{currentPage.shortTitle || currentPage.title}</span>
+                <span className="hidden sm:inline">{currentPage.title}</span>
               </h1>
-              <span className="text-[9px] px-1.5 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 font-mono border border-zinc-200 dark:border-zinc-700">
+              <span className="hidden sm:inline-block text-[9px] px-1.5 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 font-mono border border-zinc-200 dark:border-zinc-700 shrink-0">
                 {currentPage.tag}
               </span>
             </div>
           </div>
 
           {/* Right Header: Notifikasi, ThemeToggle, ML Status & Profile */}
-          <div className="flex items-center gap-2.5">
+          <div className="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
             
             {/* Notifikasi Rekrutmen & Pesan Manajer (Sisi Player & Talent) */}
             <div className="relative">
@@ -744,9 +745,9 @@ export const MainLayout = () => {
             {/* 1. Switch Theme (Matahari / Bulan) dengan animasi Circular Reveal */}
             <ThemeToggle />
 
-            {/* 2. FastAPI ML Backend Status */}
+            {/* 2. FastAPI ML Backend Status (disembunyikan di HP agar navbar tidak sesak) */}
             <div
-              className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-mono bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800"
+              className="hidden md:flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-mono bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800"
               title={
                 backendOnline
                   ? "FastAPI ML Server Online & Aktif (Port 8000)"
@@ -761,7 +762,7 @@ export const MainLayout = () => {
                 }`}
               />
               <span
-                className={`text-[11px] hidden sm:inline font-mono font-medium ${
+                className={`text-[11px] font-mono font-medium ${
                   backendOnline
                     ? "text-emerald-600 dark:text-emerald-400"
                     : "text-zinc-500 dark:text-zinc-400"
