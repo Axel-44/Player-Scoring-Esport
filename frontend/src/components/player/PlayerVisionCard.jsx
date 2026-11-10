@@ -182,7 +182,7 @@ export const PlayerVisionCard = ({
         {/* =========================================================================
             KOLOM KIRI: VISUAL ATLET & RANK OVERLAY (md:col-span-5)
             ========================================================================= */}
-        <div className="md:col-span-5 relative flex flex-col justify-end border-b md:border-b-0 md:border-r border-zinc-800 dark:border-zinc-800 light:border-zinc-200 bg-zinc-950 dark:bg-zinc-950 light:bg-zinc-100 overflow-hidden min-h-[440px]">
+        <div className="md:col-span-5 relative flex flex-col justify-end border-b md:border-b-0 md:border-r border-zinc-800 dark:border-zinc-800 light:border-zinc-200 bg-zinc-950 dark:bg-zinc-950 light:bg-zinc-100 overflow-hidden min-h-[300px] sm:min-h-[380px] md:min-h-[440px]">
           
           {/* Toggle Pilihan 3: Switch Foto Profil <-> Screenshot Bukti Pertandingan */}
           {screenshotUrl && (
@@ -305,31 +305,31 @@ export const PlayerVisionCard = ({
         {/* =========================================================================
             KOLOM KANAN: STATISTIK, ATRIBUT PROGRESS, DAN BIO (md:col-span-7)
             ========================================================================= */}
-        <div className="md:col-span-7 p-5 sm:p-6 space-y-4 bg-transparent">
+        <div className="md:col-span-7 p-4 sm:p-6 space-y-3.5 sm:space-y-4 bg-transparent">
           
           {/* Header Card: IGN, Role, Score, Tier */}
-          <div className="p-4 rounded-xl bg-zinc-900/80 dark:bg-zinc-900/80 light:bg-zinc-100 border border-zinc-800 dark:border-zinc-800 light:border-zinc-200">
+          <div className="p-3.5 sm:p-4 rounded-xl bg-zinc-900/80 dark:bg-zinc-900/80 light:bg-zinc-100 border border-zinc-800 dark:border-zinc-800 light:border-zinc-200">
             <div className="flex items-start justify-between gap-3">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-lg bg-red-600 text-white flex items-center justify-center shrink-0">
-                  <Gamepad2 className="w-5 h-5 font-bold" />
+              <div className="flex items-center gap-2.5 sm:gap-3 min-w-0">
+                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-red-600 text-white flex items-center justify-center shrink-0">
+                  <Gamepad2 className="w-4 h-4 sm:w-5 sm:h-5 font-bold" />
                 </div>
-                <div>
-                  <div className="flex flex-wrap items-baseline gap-2">
-                    <h3 className="text-2xl font-gaming font-black text-zinc-100 dark:text-zinc-100 light:text-zinc-950 uppercase leading-tight">
+                <div className="min-w-0">
+                  <div className="flex flex-wrap items-baseline gap-1.5 sm:gap-2">
+                    <h3 className="text-xl sm:text-2xl font-gaming font-black text-zinc-100 dark:text-zinc-100 light:text-zinc-950 uppercase leading-tight truncate">
                       {ign}
                     </h3>
                     {realName && (
-                      <span className="text-xs font-mono text-zinc-400 dark:text-zinc-400">
+                      <span className="text-xs font-mono text-zinc-400 dark:text-zinc-400 truncate">
                         ({realName})
                       </span>
                     )}
                   </div>
                   <div className="flex items-center gap-2 mt-0.5">
-                    <span className="px-2 py-0.5 rounded bg-zinc-800 dark:bg-zinc-800 light:bg-zinc-200 text-zinc-300 dark:text-zinc-300 light:text-zinc-700 text-[10px] font-mono font-bold uppercase">
+                    <span className="px-2 py-0.5 rounded bg-zinc-800 dark:bg-zinc-800 light:bg-zinc-200 text-zinc-300 dark:text-zinc-300 light:text-zinc-700 text-[10px] font-mono font-bold uppercase shrink-0">
                       {tier}
                     </span>
-                    <span className="text-[11px] font-mono text-zinc-400 dark:text-zinc-400 light:text-zinc-600">
+                    <span className="text-[11px] font-mono text-zinc-400 dark:text-zinc-400 light:text-zinc-600 truncate">
                       ID: {displayGameId}
                     </span>
                   </div>
@@ -338,13 +338,13 @@ export const PlayerVisionCard = ({
 
               {/* Player Score Badge */}
               <div className="text-right shrink-0">
-                <div className="text-[10px] font-mono font-bold text-zinc-400 uppercase tracking-wider">
+                <div className="text-[9px] sm:text-[10px] font-mono font-bold text-zinc-400 uppercase tracking-wider">
                   PLAYER SCORE
                 </div>
-                <div className="text-3xl font-gaming font-black text-zinc-100 dark:text-zinc-100 light:text-zinc-950">
+                <div className="text-2xl sm:text-3xl font-gaming font-black text-zinc-100 dark:text-zinc-100 light:text-zinc-950">
                   {Number(score).toFixed(1)}
                 </div>
-                <span className="inline-block px-2 py-0.5 rounded text-[9px] font-mono font-bold uppercase tracking-wider bg-red-600/10 border border-red-600/30 text-red-500">
+                <span className="inline-block px-1.5 sm:px-2 py-0.5 rounded text-[8px] sm:text-[9px] font-mono font-bold uppercase tracking-wider bg-red-600/10 border border-red-600/30 text-red-500">
                   {category.toUpperCase()} TIER
                 </span>
               </div>
@@ -352,26 +352,26 @@ export const PlayerVisionCard = ({
 
             {/* Meta Rows (Role & Style) */}
             <div className="grid grid-cols-2 gap-2 mt-3 pt-3 border-t border-zinc-800 dark:border-zinc-800 light:border-zinc-200 text-xs">
-              <div className="flex items-center gap-2">
-                <span className="text-zinc-400 text-[11px] font-mono">ROLE:</span>
-                <span className="font-gaming font-semibold text-zinc-200 dark:text-zinc-200 light:text-zinc-800 truncate">{role}</span>
+              <div className="flex items-center gap-1.5 sm:gap-2 min-w-0">
+                <span className="text-zinc-400 text-[10px] sm:text-[11px] font-mono shrink-0">ROLE:</span>
+                <span className="font-gaming font-semibold text-zinc-200 dark:text-zinc-200 light:text-zinc-800 truncate text-[11px] sm:text-xs">{role}</span>
               </div>
-              <div className="flex items-center gap-2">
-                <span className="text-zinc-400 text-[11px] font-mono">STYLE:</span>
-                <span className="font-gaming font-semibold text-zinc-200 dark:text-zinc-200 light:text-zinc-800 truncate">{style}</span>
+              <div className="flex items-center gap-1.5 sm:gap-2 min-w-0">
+                <span className="text-zinc-400 text-[10px] sm:text-[11px] font-mono shrink-0">STYLE:</span>
+                <span className="font-gaming font-semibold text-zinc-200 dark:text-zinc-200 light:text-zinc-800 truncate text-[11px] sm:text-xs">{style}</span>
               </div>
             </div>
           </div>
 
           {/* Middle Card: VISION PUBG SCOUT ATTRIBUTE BARS */}
-          <div className="p-4 rounded-xl bg-zinc-900/80 dark:bg-zinc-900/80 light:bg-zinc-100 border border-zinc-800 dark:border-zinc-800 light:border-zinc-200 space-y-3">
+          <div className="p-3.5 sm:p-4 rounded-xl bg-zinc-900/80 dark:bg-zinc-900/80 light:bg-zinc-100 border border-zinc-800 dark:border-zinc-800 light:border-zinc-200 space-y-3">
             <div className="flex items-center justify-between">
               <div>
                 <h4 className="text-xs font-gaming font-black text-zinc-100 dark:text-zinc-100 light:text-zinc-950 tracking-wider uppercase flex items-center gap-1.5">
                   <Eye className="w-3.5 h-3.5 text-red-600" />
                   <span>KARTU SCOUT VISION RESMI</span>
                 </h4>
-                <p className="text-[11px] text-zinc-400 font-mono">
+                <p className="text-[10px] sm:text-[11px] text-zinc-400 font-mono">
                   Objective Evaluation based on XGBoost Inference
                 </p>
               </div>
@@ -381,121 +381,121 @@ export const PlayerVisionCard = ({
             <div className="space-y-2.5 pt-1">
               
               {/* 1. COMBAT POWER */}
-              <div className="flex items-center gap-2.5 text-xs">
+              <div className="flex items-center gap-2 sm:gap-2.5 text-xs">
                 <div className="w-4 flex justify-center text-red-500 shrink-0">
-                  <Flame className="w-4 h-4" />
+                  <Flame className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                 </div>
-                <div className="w-32 flex flex-col shrink-0">
-                  <span className="font-gaming font-bold tracking-wider text-zinc-200 dark:text-zinc-200 light:text-zinc-800 text-[11px]">
+                <div className="w-28 sm:w-32 flex flex-col shrink-0 min-w-0">
+                  <span className="font-gaming font-bold tracking-wider text-zinc-200 dark:text-zinc-200 light:text-zinc-800 text-[10px] sm:text-[11px] truncate">
                     COMBAT POWER
                   </span>
-                  <span className="text-[10px] font-mono text-zinc-400">
+                  <span className="text-[9px] sm:text-[10px] font-mono text-zinc-400 truncate">
                     {kills} Kills • {Math.round(damage)} Dmg
                   </span>
                 </div>
-                <div className="flex-1 h-2 rounded-full bg-zinc-800 dark:bg-zinc-800 light:bg-zinc-200 overflow-hidden">
+                <div className="flex-1 h-2 rounded-full bg-zinc-800 dark:bg-zinc-800 light:bg-zinc-200 overflow-hidden min-w-[36px]">
                   <div
                     className="h-full rounded-full bg-red-600 transition-all duration-700"
                     style={{ width: `${combatPct}%` }}
                   />
                 </div>
-                <span className="w-14 text-right font-mono font-bold text-xs text-zinc-200 dark:text-zinc-200 light:text-zinc-800 shrink-0">
+                <span className="w-10 sm:w-14 text-right font-mono font-bold text-xs text-zinc-200 dark:text-zinc-200 light:text-zinc-800 shrink-0">
                   {combatPct}%
                 </span>
               </div>
 
               {/* 2. AIM ACCURACY */}
-              <div className="flex items-center gap-2.5 text-xs">
+              <div className="flex items-center gap-2 sm:gap-2.5 text-xs">
                 <div className="w-4 flex justify-center text-zinc-400 shrink-0">
-                  <Crosshair className="w-4 h-4" />
+                  <Crosshair className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                 </div>
-                <div className="w-32 flex flex-col shrink-0">
-                  <span className="font-gaming font-bold tracking-wider text-zinc-200 dark:text-zinc-200 light:text-zinc-800 text-[11px]">
+                <div className="w-28 sm:w-32 flex flex-col shrink-0 min-w-0">
+                  <span className="font-gaming font-bold tracking-wider text-zinc-200 dark:text-zinc-200 light:text-zinc-800 text-[10px] sm:text-[11px] truncate">
                     AIM ACCURACY
                   </span>
-                  <span className="text-[10px] font-mono text-zinc-400">
+                  <span className="text-[9px] sm:text-[10px] font-mono text-zinc-400 truncate">
                     {Number(headshot).toFixed(1)}% HS • {Math.round(longestKill)}m
                   </span>
                 </div>
-                <div className="flex-1 h-2 rounded-full bg-zinc-800 dark:bg-zinc-800 light:bg-zinc-200 overflow-hidden">
+                <div className="flex-1 h-2 rounded-full bg-zinc-800 dark:bg-zinc-800 light:bg-zinc-200 overflow-hidden min-w-[36px]">
                   <div
                     className="h-full rounded-full bg-red-600 transition-all duration-700"
                     style={{ width: `${accuracyPct}%` }}
                   />
                 </div>
-                <span className="w-14 text-right font-mono font-bold text-xs text-zinc-200 dark:text-zinc-200 light:text-zinc-800 shrink-0">
+                <span className="w-10 sm:w-14 text-right font-mono font-bold text-xs text-zinc-200 dark:text-zinc-200 light:text-zinc-800 shrink-0">
                   {accuracyPct}%
                 </span>
               </div>
 
               {/* 3. SURVIVAL ZONE */}
-              <div className="flex items-center gap-2.5 text-xs">
+              <div className="flex items-center gap-2 sm:gap-2.5 text-xs">
                 <div className="w-4 flex justify-center text-zinc-400 shrink-0">
-                  <Shield className="w-4 h-4" />
+                  <Shield className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                 </div>
-                <div className="w-32 flex flex-col shrink-0">
-                  <span className="font-gaming font-bold tracking-wider text-zinc-200 dark:text-zinc-200 light:text-zinc-800 text-[11px]">
+                <div className="w-28 sm:w-32 flex flex-col shrink-0 min-w-0">
+                  <span className="font-gaming font-bold tracking-wider text-zinc-200 dark:text-zinc-200 light:text-zinc-800 text-[10px] sm:text-[11px] truncate">
                     SURVIVAL ZONE
                   </span>
-                  <span className="text-[10px] font-mono text-zinc-400">
+                  <span className="text-[9px] sm:text-[10px] font-mono text-zinc-400 truncate">
                     {Number(survival).toFixed(1)}m • {Number(distance).toFixed(1)} km
                   </span>
                 </div>
-                <div className="flex-1 h-2 rounded-full bg-zinc-800 dark:bg-zinc-800 light:bg-zinc-200 overflow-hidden">
+                <div className="flex-1 h-2 rounded-full bg-zinc-800 dark:bg-zinc-800 light:bg-zinc-200 overflow-hidden min-w-[36px]">
                   <div
                     className="h-full rounded-full bg-red-600 transition-all duration-700"
                     style={{ width: `${survivalPct}%` }}
                   />
                 </div>
-                <span className="w-14 text-right font-mono font-bold text-xs text-zinc-200 dark:text-zinc-200 light:text-zinc-800 shrink-0">
+                <span className="w-10 sm:w-14 text-right font-mono font-bold text-xs text-zinc-200 dark:text-zinc-200 light:text-zinc-800 shrink-0">
                   {survivalPct}%
                 </span>
               </div>
 
               {/* 4. TACTICAL IQ */}
-              <div className="flex items-center gap-2.5 text-xs">
+              <div className="flex items-center gap-2 sm:gap-2.5 text-xs">
                 <div className="w-4 flex justify-center text-zinc-400 shrink-0">
-                  <Brain className="w-4 h-4" />
+                  <Brain className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                 </div>
-                <div className="w-32 flex flex-col shrink-0">
-                  <span className="font-gaming font-bold tracking-wider text-zinc-200 dark:text-zinc-200 light:text-zinc-800 text-[11px]">
+                <div className="w-28 sm:w-32 flex flex-col shrink-0 min-w-0">
+                  <span className="font-gaming font-bold tracking-wider text-zinc-200 dark:text-zinc-200 light:text-zinc-800 text-[10px] sm:text-[11px] truncate">
                     TACTICAL IQ
                   </span>
-                  <span className="text-[10px] font-mono text-zinc-400">
+                  <span className="text-[9px] sm:text-[10px] font-mono text-zinc-400 truncate">
                     Rank #{rank} • {assists} Ast
                   </span>
                 </div>
-                <div className="flex-1 h-2 rounded-full bg-zinc-800 dark:bg-zinc-800 light:bg-zinc-200 overflow-hidden">
+                <div className="flex-1 h-2 rounded-full bg-zinc-800 dark:bg-zinc-800 light:bg-zinc-200 overflow-hidden min-w-[36px]">
                   <div
                     className="h-full rounded-full bg-red-600 transition-all duration-700"
                     style={{ width: `${tacticalPct}%` }}
                   />
                 </div>
-                <span className="w-14 text-right font-mono font-bold text-xs text-zinc-200 dark:text-zinc-200 light:text-zinc-800 shrink-0">
+                <span className="w-10 sm:w-14 text-right font-mono font-bold text-xs text-zinc-200 dark:text-zinc-200 light:text-zinc-800 shrink-0">
                   {tacticalPct}%
                 </span>
               </div>
 
               {/* 5. SQUAD UTILITY */}
-              <div className="flex items-center gap-2.5 text-xs">
+              <div className="flex items-center gap-2 sm:gap-2.5 text-xs">
                 <div className="w-4 flex justify-center text-zinc-400 shrink-0">
-                  <Zap className="w-4 h-4" />
+                  <Zap className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                 </div>
-                <div className="w-32 flex flex-col shrink-0">
-                  <span className="font-gaming font-bold tracking-wider text-zinc-200 dark:text-zinc-200 light:text-zinc-800 text-[11px]">
+                <div className="w-28 sm:w-32 flex flex-col shrink-0 min-w-0">
+                  <span className="font-gaming font-bold tracking-wider text-zinc-200 dark:text-zinc-200 light:text-zinc-800 text-[10px] sm:text-[11px] truncate">
                     SQUAD UTILITY
                   </span>
-                  <span className="text-[10px] font-mono text-zinc-400">
+                  <span className="text-[9px] sm:text-[10px] font-mono text-zinc-400 truncate">
                     {revives} Rev • {heals + boosts} Meds
                   </span>
                 </div>
-                <div className="flex-1 h-2 rounded-full bg-zinc-800 dark:bg-zinc-800 light:bg-zinc-200 overflow-hidden">
+                <div className="flex-1 h-2 rounded-full bg-zinc-800 dark:bg-zinc-800 light:bg-zinc-200 overflow-hidden min-w-[36px]">
                   <div
                     className="h-full rounded-full bg-red-600 transition-all duration-700"
                     style={{ width: `${utilityPct}%` }}
                   />
                 </div>
-                <span className="w-14 text-right font-mono font-bold text-xs text-zinc-200 dark:text-zinc-200 light:text-zinc-800 shrink-0">
+                <span className="w-10 sm:w-14 text-right font-mono font-bold text-xs text-zinc-200 dark:text-zinc-200 light:text-zinc-800 shrink-0">
                   {utilityPct}%
                 </span>
               </div>

@@ -498,13 +498,13 @@ export const PlayerProfilePage = () => {
       {/* =========================================================================
           TOP BANNER: PROFIL & IDENTITAS ATLET
           ========================================================================= */}
-      <div className="rounded-3xl p-6 sm:p-8 border border-zinc-200 dark:border-zinc-800 bg-[#f4f4f5] dark:bg-[#18181b] relative overflow-hidden shadow-sm">
-        <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+      <div className="rounded-2xl sm:rounded-3xl p-4 sm:p-8 border border-zinc-200 dark:border-zinc-800 bg-[#f4f4f5] dark:bg-[#18181b] relative overflow-hidden shadow-sm">
+        <div className="relative z-10 flex flex-col md:flex-row items-center md:items-start justify-between gap-6">
           {/* Avatar & Info */}
-          <div className="flex flex-col sm:flex-row items-center sm:items-start gap-5 text-center sm:text-left flex-1">
+          <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 sm:gap-5 text-center sm:text-left flex-1 min-w-0 w-full">
             {/* Avatar Frame with Upload Action */}
             <div className="relative group shrink-0">
-              <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden border-2 border-zinc-300 dark:border-zinc-700 bg-zinc-200 dark:bg-zinc-800 flex items-center justify-center relative">
+              <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden border-2 border-zinc-300 dark:border-zinc-700 bg-zinc-200 dark:bg-zinc-800 flex items-center justify-center relative shadow-sm">
                 {playerAvatar ? (
                   <img
                     src={playerAvatar}
@@ -532,8 +532,8 @@ export const PlayerProfilePage = () => {
             </div>
 
             {/* Player Names, ID Game, Role & Bio */}
-            <div className="space-y-2 flex-1">
-              <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2">
+            <div className="space-y-2 flex-1 min-w-0 w-full">
+              <div className="flex flex-wrap items-center justify-center sm:justify-start gap-1.5 sm:gap-2">
                 <span className="px-2.5 py-0.5 rounded-full bg-zinc-200 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 border border-zinc-300 dark:border-zinc-700 text-[10px] font-gaming font-bold uppercase tracking-wider">
                   PUBG MOBILE PRO ATHLETE
                 </span>
@@ -558,18 +558,18 @@ export const PlayerProfilePage = () => {
                   )}
                 </button>
 
-                <span className="text-xs font-mono text-zinc-500 dark:text-zinc-400">
+                <span className="text-xs font-mono text-zinc-500 dark:text-zinc-400 truncate max-w-[200px] sm:max-w-none">
                   {user?.email}
                 </span>
               </div>
 
               {/* IGN Headline & Nama Lengkap */}
               <div>
-                <h1 className="text-3xl font-gaming font-black text-zinc-900 dark:text-white tracking-wide uppercase leading-tight">
+                <h1 className="text-2xl sm:text-3xl font-gaming font-black text-zinc-900 dark:text-white tracking-wide uppercase leading-tight break-words">
                   {activeIGN}
                 </h1>
                 {activeRealName && (
-                  <p className="text-xs font-mono text-zinc-500 dark:text-zinc-400 mt-0.5">
+                  <p className="text-xs font-mono text-zinc-500 dark:text-zinc-400 mt-0.5 truncate">
                     Nama Asli: <span className="text-zinc-700 dark:text-zinc-300 font-semibold">{activeRealName}</span>
                   </p>
                 )}
@@ -639,39 +639,39 @@ export const PlayerProfilePage = () => {
           </div>
 
           {/* Quick KPI Stats Summary */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 w-full md:w-auto shrink-0">
-            <div className="p-3.5 rounded-2xl bg-zinc-200/60 dark:bg-zinc-900/80 border border-zinc-300 dark:border-zinc-800 text-center">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3 w-full md:w-auto shrink-0">
+            <div className="p-3 sm:p-3.5 rounded-2xl bg-zinc-200/60 dark:bg-zinc-900/80 border border-zinc-300 dark:border-zinc-800 text-center">
               <span className="text-[10px] font-gaming text-zinc-500 dark:text-zinc-400 uppercase tracking-wider block">
                 SKOR PUNCAK
               </span>
-              <span className="text-2xl font-gaming font-black text-zinc-900 dark:text-white">
+              <span className="text-xl sm:text-2xl font-gaming font-black text-zinc-900 dark:text-white">
                 {bestScore}
               </span>
             </div>
 
-            <div className="p-3.5 rounded-2xl bg-zinc-200/60 dark:bg-zinc-900/80 border border-zinc-300 dark:border-zinc-800 text-center">
+            <div className="p-3 sm:p-3.5 rounded-2xl bg-zinc-200/60 dark:bg-zinc-900/80 border border-zinc-300 dark:border-zinc-800 text-center">
               <span className="text-[10px] font-gaming text-zinc-500 dark:text-zinc-400 uppercase tracking-wider block">
                 RATA-RATA
               </span>
-              <span className="text-2xl font-gaming font-black text-zinc-900 dark:text-white">
+              <span className="text-xl sm:text-2xl font-gaming font-black text-zinc-900 dark:text-white">
                 {avgScore}
               </span>
             </div>
 
-            <div className="p-3.5 rounded-2xl bg-zinc-200/60 dark:bg-zinc-900/80 border border-zinc-300 dark:border-zinc-800 text-center">
+            <div className="p-3 sm:p-3.5 rounded-2xl bg-zinc-200/60 dark:bg-zinc-900/80 border border-zinc-300 dark:border-zinc-800 text-center">
               <span className="text-[10px] font-gaming text-zinc-500 dark:text-zinc-400 uppercase tracking-wider block">
                 MATCH INPUT
               </span>
-              <span className="text-2xl font-gaming font-black text-zinc-900 dark:text-white">
+              <span className="text-xl sm:text-2xl font-gaming font-black text-zinc-900 dark:text-white">
                 {totalMatches}
               </span>
             </div>
 
-            <div className="p-3.5 rounded-2xl bg-zinc-200/60 dark:bg-zinc-900/80 border border-zinc-300 dark:border-zinc-800 text-center">
+            <div className="p-3 sm:p-3.5 rounded-2xl bg-zinc-200/60 dark:bg-zinc-900/80 border border-zinc-300 dark:border-zinc-800 text-center">
               <span className="text-[10px] font-gaming text-zinc-500 dark:text-zinc-400 uppercase tracking-wider block">
                 TOTAL KILLS
               </span>
-              <span className="text-2xl font-gaming font-black text-red-600">
+              <span className="text-xl sm:text-2xl font-gaming font-black text-red-600">
                 {totalKills}
               </span>
             </div>

@@ -216,21 +216,21 @@ export const PlayerHistoryPage = () => {
             </div>
 
             <div className="overflow-x-auto">
-              <table className="w-full text-left text-sm text-zinc-700 dark:text-zinc-300">
-                <thead className="bg-zinc-50 dark:bg-zinc-900/50 text-xs font-gaming uppercase tracking-wider text-zinc-600 dark:text-zinc-400 border-b border-zinc-200 dark:border-zinc-800">
+              <table className="w-full min-w-[720px] text-left text-sm text-zinc-700 dark:text-zinc-300">
+                <thead className="bg-zinc-50 dark:bg-zinc-900/50 text-xs font-gaming uppercase tracking-wider text-zinc-600 dark:text-zinc-400 border-b border-zinc-200 dark:border-zinc-800 whitespace-nowrap">
                   <tr>
-                    <th className="py-3 px-4">Tanggal Input</th>
-                    <th className="py-3 px-4">Tier</th>
-                    <th className="py-3 px-4">Kills</th>
-                    <th className="py-3 px-4">Damage</th>
-                    <th className="py-3 px-4">Rank</th>
-                    <th className="py-3 px-4">Player Score</th>
-                    <th className="py-3 px-4">Kategori</th>
-                    <th className="py-3 px-4">Status Leaderboard</th>
-                    <th className="py-3 px-4 text-center">Aksi Pertandingan</th>
+                    <th className="py-3 px-3.5">Tanggal Input</th>
+                    <th className="py-3 px-3.5">Tier</th>
+                    <th className="py-3 px-3.5">Kills</th>
+                    <th className="py-3 px-3.5">Damage</th>
+                    <th className="py-3 px-3.5">Rank</th>
+                    <th className="py-3 px-3.5">Player Score</th>
+                    <th className="py-3 px-3.5">Kategori</th>
+                    <th className="py-3 px-3.5">Status Leaderboard</th>
+                    <th className="py-3 px-3.5 text-center">Aksi Pertandingan</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-zinc-200 dark:divide-zinc-800/60 font-mono text-xs">
+                <tbody className="divide-y divide-zinc-200 dark:divide-zinc-800/60 font-mono text-xs whitespace-nowrap">
                   {playerHistory.map((item) => (
                     <tr key={item.id} className="hover:bg-zinc-100 dark:hover:bg-white/[0.02] transition-colors">
                       <td className="py-3 px-4 text-zinc-500 dark:text-zinc-400 font-sans flex items-center gap-2">

@@ -103,10 +103,10 @@ export const LeaderboardPage = ({ hideHeroSlider = false }) => {
 
   const roleCategories = [
     { id: "ALL", label: "Semua Role", icon: Trophy },
-    { id: "Fraggers", label: "Rusher / Fragger" },
-    { id: "Snipers", label: "Sniper / Marksman" },
-    { id: "Zone Controllers", label: "Zone Controller" },
-    { id: "Support / IGL", label: "Support / IGL" },
+    { id: "Fraggers", label: "Rusher / Fragger", icon: Flame },
+    { id: "Snipers", label: "Sniper / Marksman", icon: Crosshair },
+    { id: "Zone Controllers", label: "Zone Controller", icon: Shield },
+    { id: "Support / IGL", label: "Support / IGL", icon: Activity },
   ];
 
   const showToast = (msg) => {
@@ -1188,7 +1188,7 @@ export const LeaderboardPage = ({ hideHeroSlider = false }) => {
            ========================================================================= */
         <div className="glass-panel rounded-2xl overflow-hidden border border-zinc-200 dark:border-zinc-800 shadow-xl">
           <div className="overflow-x-auto">
-            <table className="w-full text-left text-sm text-zinc-700 dark:text-zinc-300">
+            <table className="w-full min-w-[850px] whitespace-nowrap text-left text-sm text-zinc-700 dark:text-zinc-300">
               <thead className="bg-zinc-100 dark:bg-zinc-900/90 text-xs font-gaming uppercase tracking-wider text-zinc-600 dark:text-zinc-400 border-b border-zinc-200 dark:border-zinc-800">
                 <tr>
                   <th className="py-3.5 px-4 text-center w-12">#</th>

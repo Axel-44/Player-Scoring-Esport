@@ -423,7 +423,7 @@ export const ComparePage = () => {
             </div>
 
             <div className="overflow-x-auto">
-              <table className="w-full text-left text-sm text-zinc-800 dark:text-zinc-300">
+              <table className="w-full min-w-[550px] whitespace-nowrap text-left text-sm text-zinc-800 dark:text-zinc-300">
                 <thead className="bg-zinc-50 dark:bg-zinc-900/50 text-xs font-gaming uppercase tracking-wider text-zinc-500 dark:text-zinc-400 border-b border-zinc-200 dark:border-zinc-800">
                   <tr>
                     <th className="py-3 px-4 w-1/3">Metrik Evaluasi</th>
