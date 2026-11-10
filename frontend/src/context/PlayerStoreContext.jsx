@@ -888,23 +888,75 @@ export const PlayerStoreProvider = ({ children }) => {
 
   const unreadNotificationsCount = notifications.filter((n) => !n.read).length;
 
-  // Simpan shortlist ke localStorage
+  // Helper memangkas string Base64 gambar agar tidak meledakkan kuota localStorage (QuotaExceededError)
+  const sanitizePlayerForStorage = (p) => {
+    if (!p) return p;
+    const clean = { ...p };
+    if (typeof clean.screenshot_url === "string" && clean.screenshot_url.startsWith("data:")) {
+      clean.screenshot_url = null;
+    }
+    if (typeof clean.screenshotUrl === "string" && clean.screenshotUrl.startsWith("data:")) {
+      clean.screenshotUrl = null;
+    }
+    if (typeof clean.avatar === "string" && clean.avatar.startsWith("data:") && clean.avatar.length > 2000) {
+      clean.avatar = null;
+    }
+    if (typeof clean.playerAvatar === "string" && clean.playerAvatar.startsWith("data:") && clean.playerAvatar.length > 2000) {
+      clean.playerAvatar = null;
+    }
+    return clean;
+  };
+
+  // Simpan shortlist ke localStorage dengan sanitasi kuota aman
   useEffect(() => {
-    localStorage.setItem(SHORTLIST_STORAGE_KEY, JSON.stringify(shortlist));
+    try {
+      const sanitized = shortlist.map(sanitizePlayerForStorage);
+      localStorage.setItem(SHORTLIST_STORAGE_KEY, JSON.stringify(sanitized));
+    } catch (e) {
+      console.warn("Storage quota exceeded saat menyimpan shortlist:", e);
+    }
   }, [shortlist]);
 
-  // Simpan history ke localStorage
+  // Simpan history ke localStorage dengan sanitasi kuota aman
   useEffect(() => {
-    localStorage.setItem(USER_HISTORY_STORAGE_KEY, JSON.stringify(playerHistory));
-    if (currentUserKey && currentUserKey !== "guest") {
-      localStorage.setItem(`pulse_scout_history_${currentUserKey}`, JSON.stringify(playerHistory));
+    try {
+      const sanitized = playerHistory.map(sanitizePlayerForStorage);
+      localStorage.setItem(USER_HISTORY_STORAGE_KEY, JSON.stringify(sanitized));
+      if (currentUserKey && currentUserKey !== "guest") {
+        localStorage.setItem(`pulse_scout_history_${currentUserKey}`, JSON.stringify(sanitized));
+      }
+    } catch (e) {
+      console.warn("Storage quota exceeded saat menyimpan history:", e);
     }
   }, [playerHistory, currentUserKey]);
 
-  // Simpan comparedPlayers ke localStorage jika role adalah manager
+  // Simpan comparedPlayers ke localStorage jika role adalah manager (dengan pengaman QuotaExceededError)
   useEffect(() => {
     if (isManager) {
-      localStorage.setItem(COMPARED_STORAGE_KEY, JSON.stringify(comparedPlayers));
+      try {
+        const sanitized = comparedPlayers.map(sanitizePlayerForStorage);
+        localStorage.setItem(COMPARED_STORAGE_KEY, JSON.stringify(sanitized));
+      } catch (e) {
+        console.warn("Storage quota exceeded saat menyimpan comparedPlayers:", e);
+        // Fallback: jika tetap melebihi kuota browser, simpan hanya data esensial ringkas (tanpa blob gambar)
+        try {
+          const minimal = comparedPlayers.map((p) => ({
+            Player_ID: p.Player_ID,
+            IGN: p.IGN,
+            Tier: p.Tier,
+            Player_Score: p.Player_Score,
+            Role: p.Role || p.role,
+            Map: p.Map,
+            Kills: p.Kills,
+            Damage_Dealt: p.Damage_Dealt,
+          }));
+          localStorage.setItem(COMPARED_STORAGE_KEY, JSON.stringify(minimal));
+        } catch {
+          try {
+            localStorage.removeItem(COMPARED_STORAGE_KEY);
+          } catch {}
+        }
+      }
     }
   }, [comparedPlayers, isManager]);
 

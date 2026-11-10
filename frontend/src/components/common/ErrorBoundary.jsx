@@ -22,6 +22,15 @@ export class ErrorBoundary extends React.Component {
   }
 
   handleReload = () => {
+    try {
+      if (
+        this.state.error?.name === "QuotaExceededError" ||
+        this.state.error?.message?.includes("quota") ||
+        this.state.error?.message?.includes("pulse_scout_compared_players")
+      ) {
+        localStorage.removeItem("pulse_scout_compared_players");
+      }
+    } catch {}
     this.setState({ hasError: false, error: null });
     window.location.reload();
   };
