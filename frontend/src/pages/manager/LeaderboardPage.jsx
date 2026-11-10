@@ -51,6 +51,7 @@ import {
   BarChart3,
   Printer,
   Briefcase,
+  CheckCircle2,
 } from "lucide-react";
 
 export const LeaderboardPage = ({ hideHeroSlider = false }) => {
