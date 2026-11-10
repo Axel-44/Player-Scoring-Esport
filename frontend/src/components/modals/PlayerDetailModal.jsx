@@ -22,7 +22,6 @@ import {
   BookmarkCheck,
   Users,
   Check,
-  Sparkles,
   Flame,
   ArrowRight,
   Printer,

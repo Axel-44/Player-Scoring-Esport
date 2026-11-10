@@ -12,7 +12,6 @@ import { Link } from "react-router-dom";
 import {
   CheckCircle,
   X,
-  Sparkles,
   ArrowRight,
   Trophy,
   Shield,

@@ -13,7 +13,7 @@ import {
   User,
   Shield,
   Crosshair,
-  Sparkles,
+  Info,
   Trophy,
   MessageSquare,
   AlertCircle,
@@ -135,7 +135,7 @@ export const ShortlistInviteModal = ({
           </div>
 
           <div className="p-3 rounded-xl bg-zinc-100 dark:bg-zinc-950/60 border border-zinc-200 dark:border-zinc-800/80 text-[11px] font-mono text-zinc-600 dark:text-zinc-400 flex items-start gap-2">
-            <Sparkles className="w-3.5 h-3.5 text-red-600 shrink-0 mt-0.5" />
+            <Info className="w-3.5 h-3.5 text-red-600 shrink-0 mt-0.5" />
             <span>
               Pesan ini akan memicu badge notifikasi merah di akun <strong>{playerIGN}</strong>, menghubungkannya langsung ke kontak resmi WhatsApp tim Anda.
             </span>

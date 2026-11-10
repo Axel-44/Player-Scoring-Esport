@@ -17,7 +17,6 @@ import {
   Shield,
   ExternalLink,
   CheckCircle2,
-  Sparkles,
   Maximize2,
 } from "lucide-react";
 
@@ -347,21 +346,12 @@ export const TutorialModal = ({ isOpen, onClose, initialRole = "player" }) => {
               </button>
             </div>
 
-            {/* Deskripsi & Tips */}
+            {/* Deskripsi */}
             <div className="grid grid-cols-1 md:grid-cols-12 gap-4 items-start">
               <div className="md:col-span-8 space-y-3">
                 <p className="text-sm text-zinc-700 dark:text-zinc-300 leading-relaxed font-sans">
                   {currentStep.description}
                 </p>
-
-                {currentStep.tip && (
-                  <div className="p-3.5 rounded-xl bg-red-600/5 dark:bg-red-600/10 border border-red-600/20 flex items-start gap-2.5 text-xs text-zinc-800 dark:text-zinc-200">
-                    <Sparkles className="w-4 h-4 text-red-600 shrink-0 mt-0.5" />
-                    <p className="leading-relaxed">
-                      <strong>Tips Sukses:</strong> {currentStep.tip}
-                    </p>
-                  </div>
-                )}
               </div>
 
               {/* Shortcut Tombol Navigasi Langsung ke Fitur */}
@@ -465,3 +455,4 @@ export const TutorialModal = ({ isOpen, onClose, initialRole = "player" }) => {
     </>
   );
 };
+

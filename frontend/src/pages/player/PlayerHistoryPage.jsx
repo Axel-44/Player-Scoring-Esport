@@ -25,7 +25,6 @@ import {
   Zap,
   Eye,
   X,
-  Sparkles,
   Printer,
   Trophy,
   Lock,

@@ -15,7 +15,6 @@ import { SimpleToastNotification } from "../../components/common/SimpleToastNoti
 import { compressImageFile } from "../../utils/imageCompressor";
 import {
   Crosshair,
-  Sparkles,
   AlertCircle,
   Loader2,
   CheckCircle,
@@ -36,6 +35,7 @@ import {
   EyeOff,
   Upload,
   Camera,
+  Shield,
 } from "lucide-react";
 
 // Karakteristik & Batas Durasi Resmi Map PUBG Mobile (Kompabilitas Integritas Data)
@@ -520,7 +520,7 @@ export const PlayerInputPage = () => {
                 className="px-3 py-1.5 rounded-xl bg-red-600/10 hover:bg-red-600/20 text-red-600 border border-red-600/30 text-xs font-gaming font-bold flex items-center gap-1.5 transition-all cursor-pointer"
                 title="Isi data sampel match untuk uji coba cepat"
               >
-                <Sparkles className="w-3.5 h-3.5" />
+                <Zap className="w-3.5 h-3.5" />
                 <span>DATA CONTOH</span>
               </button>
 
@@ -1010,7 +1010,7 @@ export const PlayerInputPage = () => {
                 </>
               ) : (
                 <>
-                  <Sparkles className="w-5 h-5" />
+                  <Activity className="w-5 h-5" />
                   <span>HITUNG PLAYER SCORE & ANALISIS (REAL-TIME)</span>
                 </>
               )}
@@ -1222,7 +1222,7 @@ export const PlayerInputPage = () => {
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-4 sm:p-5 rounded-2xl bg-[#18181b] dark:bg-[#18181b] light:bg-[#f4f4f5] border border-zinc-800 dark:border-zinc-800 light:border-zinc-200">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-xl bg-zinc-800 dark:bg-zinc-800 light:bg-zinc-200 border border-zinc-700 dark:border-zinc-700 light:border-zinc-300 flex items-center justify-center text-red-600">
-                <Sparkles className="w-5 h-5 text-red-600" />
+                <Shield className="w-5 h-5 text-red-600" />
               </div>
               <div>
                 <h2 className="text-xl font-gaming font-black text-white dark:text-white light:text-zinc-900 tracking-wider uppercase flex items-center gap-2">

@@ -26,7 +26,6 @@ import {
   Compass,
   Target,
   Gamepad2,
-  Sparkles,
 } from "lucide-react";
 
 export const TeamDirectoryPage = () => {

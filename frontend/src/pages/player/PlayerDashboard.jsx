@@ -29,7 +29,6 @@ import {
   Crosshair,
   TrendingUp,
   Trophy,
-  Sparkles,
   ArrowRight,
   Activity,
   Flame,
@@ -221,7 +220,7 @@ export const PlayerDashboard = () => {
             <span className="text-[11px] font-gaming font-bold uppercase tracking-wider">
               SKOR AI TERAKHIR
             </span>
-            <Sparkles className="w-4 h-4 text-red-600" />
+            <Activity className="w-4 h-4 text-red-600" />
           </div>
           <div className="flex items-baseline gap-2">
             <span className="text-3xl font-gaming font-black text-red-600">{latestScore}</span>
