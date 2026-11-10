@@ -33,9 +33,11 @@ import {
   Trash2,
   CheckCheck,
   MessageSquare,
+  BookOpen,
 } from "lucide-react";
 import { ErrorBoundary } from "../components/common/ErrorBoundary";
 import { ConfirmActionModal } from "../components/common/ConfirmActionModal";
+import { TutorialModal } from "../components/modals/TutorialModal";
 
 const SIDEBAR_STORAGE_KEY = "pulse_scout_sidebar_collapsed";
 
@@ -54,6 +56,7 @@ export const MainLayout = () => {
   const location = useLocation();
 
   const [showNotificationsDropdown, setShowNotificationsDropdown] = useState(false);
+  const [showTutorialModal, setShowTutorialModal] = useState(false);
 
   // State sidebar collapsed (tersimpan di localStorage)
   const [isCollapsed, setIsCollapsed] = useState(() => {
@@ -630,9 +633,22 @@ export const MainLayout = () => {
             </div>
           </div>
 
-          {/* Right Header: Notifikasi, ThemeToggle, ML Status & Profile */}
+          {/* Right Header: Tutorial, Notifikasi, ThemeToggle, ML Status & Profile */}
           <div className="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
             
+            {/* Tombol Panduan / Tutorial Interaktif */}
+            <button
+              type="button"
+              onClick={() => setShowTutorialModal(true)}
+              className="p-2 rounded-xl bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-800 dark:hover:bg-zinc-700 text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-700 transition-all cursor-pointer flex items-center gap-1.5 group"
+              title="Buka Panduan Penggunaan Web (Tutorial)"
+            >
+              <BookOpen className="w-4 h-4 text-red-600 group-hover:scale-110 transition-transform" />
+              <span className="hidden sm:inline text-xs font-gaming font-bold tracking-wider uppercase">
+                Panduan
+              </span>
+            </button>
+
             {/* Notifikasi Rekrutmen & Pesan Manajer (Sisi Player & Talent) */}
             <div className="relative">
               <button
@@ -878,6 +894,13 @@ export const MainLayout = () => {
         cancelText="Batal"
         icon={LogOut}
         isLoading={isLoggingOut}
+      />
+
+      {/* Modal Panduan & Tutorial Penggunaan Interaktif */}
+      <TutorialModal
+        isOpen={showTutorialModal}
+        onClose={() => setShowTutorialModal(false)}
+        initialRole={role}
       />
     </div>
   );
