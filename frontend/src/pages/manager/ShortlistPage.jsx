@@ -61,13 +61,13 @@ export const ShortlistPage = () => {
         <div>
           <div className="inline-flex items-center gap-2 text-xs font-gaming font-semibold text-red-600 uppercase tracking-wider mb-1">
             <BookmarkCheck className="w-3.5 h-3.5" />
-            RECRUITMENT SHORTLIST (FR-08, BB-09)
+            RECRUITMENT SCOUTING (FR-08, BB-09)
           </div>
           <h1 className="text-3xl font-gaming font-bold text-zinc-900 dark:text-white tracking-wide">
-            DAFTAR KANDIDAT INCORPORATED
+            DAFTAR INCARAN PEMAIN
           </h1>
           <p className="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400">
-            Kelola daftar kandidat prioritas hasil scouting, tambahkan evaluasi kualitatif, dan ekspor ke format CSV.
+            Kelola daftar kandidat atlet prioritas hasil scouting, tambahkan evaluasi kualitatif, dan ekspor ke format CSV.
           </p>
         </div>
 
@@ -78,7 +78,7 @@ export const ShortlistPage = () => {
               className="px-5 py-2.5 rounded-xl text-xs font-gaming font-bold text-white bg-red-600 hover:bg-red-700 shadow-sm flex items-center gap-2 uppercase tracking-wider transition-all"
             >
               <Download className="w-4 h-4" />
-              <span>EKSPOR SHORTLIST (CSV)</span>
+              <span>EKSPOR INCARAN (CSV)</span>
             </button>
           </div>
         )}
@@ -91,10 +91,10 @@ export const ShortlistPage = () => {
             <BookmarkCheck className="w-8 h-8" />
           </div>
           <h3 className="text-lg font-gaming font-bold text-zinc-900 dark:text-white mb-2">
-            SHORTLIST MASIH KOSONG
+            DAFTAR INCARAN MASIH KOSONG
           </h3>
           <p className="text-xs text-zinc-500 dark:text-zinc-400 mb-6">
-            Anda belum menambahkan pemain ke dalam daftar shortlist. Buka Leaderboard untuk menandai kandidat yang menjanjikan, atau muat 3 pemain contoh untuk langsung menguji fitur Cetak Laporan PDF.
+            Anda belum menambahkan pemain ke dalam daftar incaran. Buka Leaderboard untuk menandai kandidat yang menjanjikan, atau muat 3 pemain contoh untuk langsung menguji fitur Cetak Laporan PDF.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-3">
             <Link

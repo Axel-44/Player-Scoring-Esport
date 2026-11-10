@@ -60,6 +60,7 @@ export const LeaderboardPage = ({ hideHeroSlider = false }) => {
   const {
     players,
     addToShortlist,
+    removeFromShortlist,
     addToCompare,
     comparedPlayers,
     shortlist,
@@ -549,14 +550,14 @@ export const LeaderboardPage = ({ hideHeroSlider = false }) => {
           </div>
         </div>
 
-        {/* KPI 3: Shortlist Recruitment Squad */}
+        {/* KPI 3: Daftar Incaran Squad */}
         <Link
           to="/manager/shortlists"
           className="glass-panel rounded-2xl p-4 sm:p-5 border border-zinc-200 dark:border-zinc-800 flex items-center justify-between hover:border-red-600/50 transition-all group shadow-sm"
         >
           <div>
             <span className="text-[11px] font-gaming uppercase tracking-wider text-zinc-500 dark:text-zinc-400 block mb-1">
-              Shortlist Rekrutmen
+              Daftar Incaran Tim
             </span>
             <div className="flex items-baseline gap-2">
               <span className="text-3xl font-gaming font-black text-zinc-900 dark:text-white group-hover:text-red-600 transition-colors">
@@ -565,7 +566,7 @@ export const LeaderboardPage = ({ hideHeroSlider = false }) => {
               <span className="text-sm font-gaming text-zinc-500 dark:text-zinc-400">/ 20 Target</span>
             </div>
             <span className="text-[10px] text-red-600 flex items-center gap-1 mt-1 font-semibold">
-              <span>Buka Daftar Shortlist</span>
+              <span>Buka Daftar Incaran</span>
               <ChevronRightIcon className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
             </span>
           </div>
@@ -1145,19 +1146,21 @@ export const LeaderboardPage = ({ hideHeroSlider = false }) => {
                     <button
                       onClick={() => {
                         if (isSpotlightShortlisted) {
-                          showToast("Pemain sudah ada di dalam shortlist.");
+                          removeFromShortlist(spotlightPlayer.Player_ID);
+                          showToast(`${spotlightPlayer.IGN || "Pemain"} dihapus dari daftar incaran.`);
                         } else {
                           setShortlistTargetPlayer(spotlightPlayer);
                         }
                       }}
                       className={`py-2 rounded-xl text-xs font-gaming font-bold tracking-wider uppercase transition-all flex items-center justify-center gap-1.5 cursor-pointer ${
                         isSpotlightShortlisted
-                          ? "bg-zinc-100 dark:bg-zinc-800 text-red-600 border border-red-600/40"
+                          ? "bg-red-600/10 dark:bg-red-600/20 text-red-600 border border-red-600/40 hover:bg-red-600/20"
                           : "bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 text-zinc-900 dark:text-white border border-zinc-300 dark:border-zinc-700 shadow-sm"
                       }`}
+                      title={isSpotlightShortlisted ? "Klik untuk membatalkan incaran" : "Tambahkan ke daftar incaran"}
                     >
                       <BookmarkCheck className="w-3.5 h-3.5" />
-                      <span>{isSpotlightShortlisted ? "TERDAFTAR" : "+ SHORTLIST"}</span>
+                      <span>{isSpotlightShortlisted ? "DIINCAR" : "+ INCAR"}</span>
                     </button>
 
                     <button
@@ -1403,17 +1406,18 @@ export const LeaderboardPage = ({ hideHeroSlider = false }) => {
                                 <button
                                   onClick={() => {
                                     if (isShortlisted) {
-                                      showToast("Pemain sudah ada di dalam shortlist.");
+                                      removeFromShortlist(player.Player_ID);
+                                      showToast(`${player.IGN || "Pemain"} dihapus dari daftar incaran.`);
                                     } else {
                                       setShortlistTargetPlayer(player);
                                     }
                                   }}
                                   className={`p-1.5 rounded-lg transition-colors cursor-pointer ${
                                     isShortlisted
-                                      ? "text-red-600 bg-red-600/10"
+                                      ? "text-red-600 bg-red-600/10 hover:bg-red-600/20"
                                       : "text-zinc-500 hover:text-red-600 dark:text-zinc-400 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800"
                                   }`}
-                                  title="Tambah ke Shortlist"
+                                  title={isShortlisted ? "Hapus dari daftar incaran" : "Tambah ke daftar incaran"}
                                 >
                                   <BookmarkCheck className="w-4 h-4" />
                                 </button>

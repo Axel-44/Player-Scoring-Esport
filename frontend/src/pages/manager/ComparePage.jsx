@@ -32,6 +32,7 @@ export const ComparePage = () => {
     removeFromCompare,
     clearCompare,
     addToShortlist,
+    removeFromShortlist,
     shortlist,
     addToCompare,
     managerTeam,
@@ -221,19 +222,21 @@ export const ComparePage = () => {
                     <button
                       onClick={() => {
                         if (isShortlisted) {
-                          showToast("Pemain sudah ada di dalam shortlist.");
+                          removeFromShortlist(player.Player_ID);
+                          showToast(`${player.IGN || "Pemain"} dihapus dari daftar incaran.`);
                         } else {
                           setShortlistTargetPlayer(player);
                         }
                       }}
-                      className={`px-3 py-1.5 rounded-lg text-xs font-gaming font-bold flex items-center gap-1 cursor-pointer ${
+                      className={`px-3 py-1.5 rounded-lg text-xs font-gaming font-bold flex items-center gap-1 cursor-pointer transition-colors ${
                         isShortlisted
-                          ? "bg-red-600/15 text-red-600 border border-red-600/30"
+                          ? "bg-red-600/15 text-red-600 border border-red-600/30 hover:bg-red-600/25"
                           : "bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 text-zinc-800 dark:text-zinc-200"
                       }`}
+                      title={isShortlisted ? "Klik untuk membatalkan incaran" : "Tambahkan ke daftar incaran"}
                     >
                       <BookmarkCheck className="w-3.5 h-3.5" />
-                      <span>{isShortlisted ? "SHORTLISTED" : "+ SHORTLIST"}</span>
+                      <span>{isShortlisted ? "DIINCAR" : "+ INCAR"}</span>
                     </button>
                   </div>
                 </div>

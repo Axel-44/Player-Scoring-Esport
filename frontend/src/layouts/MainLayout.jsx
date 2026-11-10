@@ -145,7 +145,7 @@ export const MainLayout = () => {
     if (pathname.includes("/manager/compare"))
       return { title: "KOMPARASI HEAD-TO-HEAD", shortTitle: "KOMPARASI", tag: "RADAR COMPARE" };
     if (pathname.includes("/manager/shortlists"))
-      return { title: "SHORTLIST SQUAD KANDIDAT", shortTitle: "SHORTLIST", tag: "RECRUITMENT" };
+      return { title: "DAFTAR INCARAN SQUAD", shortTitle: "INCARAN", tag: "RECRUITMENT" };
     if (pathname.includes("/about-model"))
       return { title: "DOKUMENTASI MODEL MACHINE LEARNING", shortTitle: "TENTANG MODEL", tag: "DOCS" };
     if (pathname.includes("/esports"))
@@ -167,7 +167,7 @@ export const MainLayout = () => {
         { to: "/manager/dashboard", label: "Dashboard", icon: LayoutDashboard },
         { to: "/manager/leaderboard", label: "Leaderboard", icon: Trophy, badge: "Live" },
         { to: "/manager/compare", label: "Komparasi Pemain", icon: Users },
-        { to: "/manager/shortlists", label: "Shortlist Squad", icon: BookmarkCheck },
+        { to: "/manager/shortlists", label: "Daftar Incaran", icon: BookmarkCheck },
         { to: "/esports", label: "Esports Hub", icon: Globe, badge: "PMSL" },
       ],
     },

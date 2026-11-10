@@ -62,7 +62,7 @@ export const ShortlistInviteModal = ({
             </div>
             <div>
               <h3 className="text-sm font-gaming font-black uppercase tracking-wider">
-                UNDANG KANDIDAT KE SHORTLIST
+                SIMPAN KE DAFTAR INCARAN
               </h3>
               <p className="text-[11px] font-mono text-zinc-500">
                 Pesan ini akan dikirimkan langsung sebagai Notifikasi Resmi ke akun atlet.
@@ -156,7 +156,7 @@ export const ShortlistInviteModal = ({
               className="px-5 py-2 rounded-xl bg-red-600 hover:bg-red-700 text-white text-xs font-gaming font-black uppercase tracking-wider transition-all shadow-md flex items-center gap-2 cursor-pointer disabled:opacity-50"
             >
               <Send className="w-3.5 h-3.5" />
-              <span>Kirim Undangan & Shortlist</span>
+              <span>Kirim Undangan & Incar Pemain</span>
             </button>
           </div>
         </form>
