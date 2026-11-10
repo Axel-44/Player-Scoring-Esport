@@ -240,6 +240,39 @@
 }
 
 /* =========================================================================
+   TUTORIAL SPLIT LAYOUT SLIDE TRANSITION ANIMATION
+   ========================================================================= */
+@keyframes tutorialContentSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes tutorialImageSlideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.97) translateX(12px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateX(0);
+  }
+}
+
+.animate-tutorial-content {
+  animation: tutorialContentSlideIn 360ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-tutorial-image {
+  animation: tutorialImageSlideIn 420ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* =========================================================================
    PRINT STYLES FOR OFFICIAL SCOUTING REPORTS (A4 FORMAT)
    ========================================================================= */
 @media print {
